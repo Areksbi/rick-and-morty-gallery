@@ -24,6 +24,12 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
       <h2 className="gallery__title">{t('gallery.title.value')}</h2>
       {res.response ? (
         <>
+          <Pagination
+            goToPage={goToPage}
+            perPage={20}
+            pages={res.response.info.pages}
+            currentPage={page}
+          />
           <div className="gallery__card-container">
             {res.response.results.map((character: IApiRickAndMortyResult) => (
               <Card key={character.id} {...character} />
