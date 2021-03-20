@@ -1,3 +1,12 @@
+export enum ApiRickAndMortyCharacterRequestEnum {
+  PAGE = 'page',
+  NAME = 'name',
+  SPECIES = 'species',
+  TYPE = 'type',
+  STATUS = 'status',
+  GENDER = 'gender',
+}
+
 export enum ApiRickAndMortyGenderEnum {
   GENDERLESS = 'Genderless',
   MALE = 'Male',

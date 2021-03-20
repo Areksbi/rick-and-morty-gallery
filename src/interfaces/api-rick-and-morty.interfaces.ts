@@ -1,4 +1,16 @@
-import { ApiRickAndMortyGenderEnum } from '../enums/api-rick-and-morty.enums';
+import {
+  ApiRickAndMortyGenderEnum,
+  ApiRickAndMortyStatusEnum,
+} from '../enums/api-rick-and-morty.enums';
+
+export interface IApiRickAndMortyCharacter {
+  page?: string;
+  name?: string;
+  species?: string;
+  type?: string;
+  status?: ApiRickAndMortyStatusEnum | string;
+  gender?: ApiRickAndMortyGenderEnum | string;
+}
 
 interface IApiRickAndMortyInfo {
   count: number;

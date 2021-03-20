@@ -8,23 +8,63 @@ import useQueryParams from '../../effects/use-query-params';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
   IApiRickAndMorty,
+  IApiRickAndMortyCharacter,
   IApiRickAndMortyResult,
 } from '../../interfaces/api-rick-and-morty.interfaces';
 import { ITranslation } from '../../interfaces/core.interfaces';
-import { QueryParamsEnums } from '../../enums/query-params.enums';
+import { QueryParamsConstants } from '../../constants/query-params.constants';
 import Filters from '../../components/gallery-components/filters/filters.component';
 
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
-  const [pageQueryParam, setPageQueryParam] = useQueryParams(
-    QueryParamsEnums.PAGE,
+  const [pageParam, setPageParam] = useQueryParams(
+    QueryParamsConstants.PAGE,
     ''
   );
-  const [page, setPage] = useState(parseInt(pageQueryParam || '1', 10));
-  const res = useFetch<IApiRickAndMorty>(ApiRickAndMorty.CHARACTER(page));
+  const [name, setNameParam] = useQueryParams(QueryParamsConstants.NAME, '');
+  const [species, setSpeciesParam] = useQueryParams(
+    QueryParamsConstants.SPECIES,
+    ''
+  );
+  const [type, setTypeParam] = useQueryParams(QueryParamsConstants.TYPE, '');
+  const [status, setStatusParam] = useQueryParams(
+    QueryParamsConstants.STATUS,
+    ''
+  );
+  const [gender, setGenderParam] = useQueryParams(
+    QueryParamsConstants.GENDER,
+    ''
+  );
+
+  const [page, setPage] = useState(parseInt(pageParam || '1', 10));
+  const res = useFetch<IApiRickAndMorty>(
+    ApiRickAndMorty.CHARACTER({
+      page: page.toString(),
+      name,
+      species,
+      type,
+      status,
+      gender,
+    })
+  );
+
   const goToPage = (selectedPage: number) => {
     setPage(selectedPage);
-    setPageQueryParam(selectedPage.toString());
+    setPageParam(selectedPage.toString());
     window.scrollTo(0, 0);
+  };
+  const onFiltersChange = ({
+    gender,
+    name,
+    species,
+    status,
+    type,
+  }: IApiRickAndMortyCharacter): void => {
+    if (name) setNameParam(name);
+    if (species) setSpeciesParam(species);
+    if (type) setTypeParam(type);
+    if (status) setStatusParam(status);
+    if (gender) setGenderParam(gender);
+    goToPage(1);
   };
 
   return (

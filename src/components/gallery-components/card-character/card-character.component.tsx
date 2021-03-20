@@ -14,7 +14,7 @@ const Card = ({
   species,
   status,
   type,
-}: IApiRickAndMortyResult) => {
+}: IApiRickAndMortyResult): JSX.Element => {
   const { t } = useTranslation('common');
   return (
     <article className="card">
@@ -28,19 +28,18 @@ const Card = ({
           />
         </div>
       </header>
-
       <table className="card__info">
         <tbody>
           <tr>
             <td>{t('gallery.character.species')}</td>
             <td>{species}</td>
           </tr>
-          {type && (
+          {type ? (
             <tr>
               <td>{t('gallery.character.type')}</td>
               <td>{type}</td>
             </tr>
-          )}
+          ) : null}
           <tr>
             <td>{t('gallery.character.gender')}</td>
             <td>{gender}</td>

@@ -23,6 +23,7 @@ module.exports = {
           plugins: ["@typescript-eslint"],
           rules: {
             quotes: [2, "single", { avoidEscape: true }],
+            "@typescript-eslint/ban-ts-comment": "off",
           },
         },
       ],
