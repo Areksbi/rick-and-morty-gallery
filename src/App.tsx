@@ -14,19 +14,21 @@ const App = (): JSX.Element => {
     <>
       <Header t={t} />
       <main>
-        <Switch>
-          <Route exact path={UrlsConst.ROOT}>
-            <Redirect to={UrlsConst.GALLERY} />
-          </Route>
-          <Route
-            exact
-            path={UrlsConst.GALLERY}
-            render={() => <GalleryPage t={t} />}
-          />
-          <Route>
-            <Redirect to={UrlsConst.GALLERY} />
-          </Route>
-        </Switch>
+        <div className="main-container">
+          <Switch>
+            <Route exact path={UrlsConst.ROOT}>
+              <Redirect to={UrlsConst.GALLERY} />
+            </Route>
+            <Route
+              exact
+              path={UrlsConst.GALLERY}
+              render={() => <GalleryPage t={t} />}
+            />
+            <Route>
+              <Redirect to={UrlsConst.GALLERY} />
+            </Route>
+          </Switch>
+        </div>
       </main>
       <Footer t={t} />
     </>

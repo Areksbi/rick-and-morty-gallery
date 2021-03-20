@@ -1,5 +1,6 @@
 import React from 'react';
 
+import './gallery.styles.scss';
 import Card from '../../components/gallery-components/card-character/card-character.component';
 import useFetch from '../../effects/use-fetch.effect';
 import { ApiRickAndMorty } from '../../constants/api.constants';

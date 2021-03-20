@@ -1,3 +1,15 @@
+@import "colors";
+@import "variables";
+
+@mixin box-shadow($vertical-offset: 16px) {
+  box-shadow: 0 $vertical-offset 8px -16px $color-box-shadow;
+}
+
+@mixin max-width() {
+  margin: 0 auto;
+  max-width: $width-max-page;
+}
+
 @mixin visually-hidden() {
   &:not(:focus):not(:active) {
     clip: rect(1px, 1px, 1px, 1px);

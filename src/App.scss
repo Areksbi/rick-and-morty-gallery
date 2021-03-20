@@ -1,0 +1,13 @@
+@import "styles/colors";
+@import "styles/mixins";
+@import "styles/variables";
+
+main {
+  background-color: $color-background-primary;
+  flex: 1;
+  padding: $padding-base;
+}
+
+.main-container {
+  @include max-width;
+}

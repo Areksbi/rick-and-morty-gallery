@@ -4,20 +4,13 @@
 @import "styles/variables";
 
 body {
-  background-color: $color-background;
+  background-color: $color-background-secondary;
   font-family: $font-family;
   font-size: $font-size-base;
-}
-
-main {
-  flex: 1;
-  padding: $padding-base;
 }
 
 #root {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: $width-max-page;
   min-height: 100vh;
 }

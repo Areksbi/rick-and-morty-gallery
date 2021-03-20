@@ -6,9 +6,14 @@
   $height-header: 100px;
   $padding-header: $padding-base;
 
+  @include box-shadow;
+  @include max-width;
+
   height: $height-header;
   padding: $padding-header;
   text-align: center;
+  width: 100%;
+  z-index: $z-index-header;
 
   &__figure {
     display: inline-block;
