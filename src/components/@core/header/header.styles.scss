@@ -7,7 +7,6 @@
   $padding-header: $padding-base;
 
   @include box-shadow;
-  @include max-width;
 
   height: $height-header;
   padding: $padding-header;
