@@ -10,10 +10,15 @@
   },
   "gallery": {
     "character": {
+      "gender": "Gender",
       "genderFemale": "Female",
       "genderMale": "Male",
       "genderUnknown": "Unknown",
-      "imageOf": "Image of"
+      "imageOf": "Image of",
+      "location": "Location",
+      "origin": "Origin",
+      "species": "Species",
+      "status": "Status"
     },
     "loading": {
       "value": "Loading..."

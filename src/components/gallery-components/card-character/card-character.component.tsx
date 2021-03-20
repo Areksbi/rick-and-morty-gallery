@@ -24,25 +24,25 @@ const Card = ({
       <table>
         <tbody>
           <tr>
-            <td>Species</td>
+            <td>{t('gallery.character.species')}</td>
             <td>
               {species} {type && <span>({type})</span>}
             </td>
           </tr>
           <tr>
-            <td>Status</td>
+            <td>{t('gallery.character.status')}</td>
             <td>{status}</td>
           </tr>
           <tr>
-            <td>Gender</td>
+            <td>{t('gallery.character.origin')}</td>
             <td>{origin.name}</td>
           </tr>
           <tr>
-            <td>Location</td>
+            <td>{t('gallery.character.location')}</td>
             <td>{location.name}</td>
           </tr>
           <tr>
-            <td>Origin</td>
+            <td>{t('gallery.character.gender')}</td>
             <td>
               {gender === ApiRickAndMortyGenderEnum.MALE ? (
                 <span>
