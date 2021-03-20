@@ -5,9 +5,9 @@
 main {
   background-color: $color-background-primary;
   flex: 1;
-  padding: $padding-base;
 }
 
 .main-container {
   @include max-width;
+  padding: $padding-base;
 }

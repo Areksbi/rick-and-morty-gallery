@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.gallery {
+  &__card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    margin: $margin-base 0;
+  }
+}

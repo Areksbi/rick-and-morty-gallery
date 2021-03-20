@@ -1,7 +1,8 @@
-import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
-import { ApiRickAndMortyGenderEnum } from '../../../enums/api-rick-and-morty.enums';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import './card-character.styles.scss';
+import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
 
 const Card = ({
   name,
@@ -15,13 +16,17 @@ const Card = ({
 }: IApiRickAndMortyResult) => {
   const { t } = useTranslation('common');
   return (
-    <article>
+    <article className="card">
       <header>
-        <h3>{name}</h3>
-        <img src={image} alt={`${t('gallery.character.imageOf')} ${name}`} />
+        <h3 className="card__title">{name}</h3>
+        <img
+          className="card__image"
+          src={image}
+          alt={`${t('gallery.character.imageOf')} ${name}`}
+        />
       </header>
 
-      <table>
+      <table className="card__info">
         <tbody>
           <tr>
             <td>{t('gallery.character.species')}</td>
@@ -30,32 +35,20 @@ const Card = ({
             </td>
           </tr>
           <tr>
-            <td>{t('gallery.character.status')}</td>
-            <td>{status}</td>
+            <td>{t('gallery.character.gender')}</td>
+            <td>{gender}</td>
           </tr>
           <tr>
-            <td>{t('gallery.character.origin')}</td>
-            <td>{origin.name}</td>
+            <td>{t('gallery.character.status')}</td>
+            <td>{status}</td>
           </tr>
           <tr>
             <td>{t('gallery.character.location')}</td>
             <td>{location.name}</td>
           </tr>
           <tr>
-            <td>{t('gallery.character.gender')}</td>
-            <td>
-              {gender === ApiRickAndMortyGenderEnum.MALE ? (
-                <span>
-                  <span>{t('gallery.character.genderMale')}</span>♂️
-                </span>
-              ) : gender === ApiRickAndMortyGenderEnum.FEMALE ? (
-                <span>
-                  <span>{t('gallery.character.genderFemale')}</span>♀️️
-                </span>
-              ) : (
-                <span>{t('gallery.character.genderUnknown')}</span>
-              )}
-            </td>
+            <td>{t('gallery.character.origin')}</td>
+            <td>{origin.name}</td>
           </tr>
         </tbody>
       </table>

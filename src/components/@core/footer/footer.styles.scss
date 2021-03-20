@@ -2,7 +2,7 @@
 @import "../../../styles/variables";
 
 .footer {
-  @include box-shadow($vertical-offset: -16px);
+  @include box-shadow($v-offset: -8px);
   @include max-width;
 
   align-items: center;

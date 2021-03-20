@@ -13,16 +13,18 @@ import { ITranslation } from '../../interfaces/core.interfaces';
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
   const res = useFetch<IApiRickAndMorty>(ApiRickAndMorty.CHARACTER());
   return (
-    <>
-      <h2>{t('gallery.title.value')}</h2>
-      {res?.response ? (
-        res.response?.results.map((character: IApiRickAndMortyResult) => (
-          <Card key={character.id} {...character} />
-        ))
-      ) : (
-        <div>{t('gallery.loading.value')}</div>
-      )}
-    </>
+    <div className="gallery">
+      <h2 className="gallery__title">{t('gallery.title.value')}</h2>
+      <div className="gallery__card-container">
+        {res?.response ? (
+          res.response?.results.map((character: IApiRickAndMortyResult) => (
+            <Card key={character.id} {...character} />
+          ))
+        ) : (
+          <div>{t('gallery.loading.value')}</div>
+        )}
+      </div>
+    </div>
   );
 };
 

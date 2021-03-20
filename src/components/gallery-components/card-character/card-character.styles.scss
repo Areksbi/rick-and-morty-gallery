@@ -1,0 +1,45 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.card {
+  $border-width: 1px;
+  $width-image: 280px;
+
+  @include box-shadow($v-offset: 0, $spread-radius: 0);
+
+  border-radius: 8px;
+  margin: $margin-base $margin-base / 2;
+  max-width: #{$width-image + $padding-base * 2 + $border-width * 2};
+  padding: $padding-base;
+
+  tr {
+    &:not(:last-child) {
+      border-bottom: $border-width solid $color-primary;
+    }
+
+    td {
+      padding: $padding-base / 2;
+
+      &:first-letter {
+        text-transform: capitalize;
+      }
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  &__image {
+    border: $border-width solid $color-primary;
+    margin-bottom: $margin-base;
+    width: $width-image;
+  }
+
+  &__title {
+    font-size: $font-size-subtitle;
+    margin-bottom: $margin-base;
+    text-align: center;
+  }
+}
