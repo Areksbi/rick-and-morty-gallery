@@ -1,6 +1,12 @@
 @import "styles/colors";
 @import "styles/reset";
+@import "styles/variables";
 
 body {
   background-color: $color-background;
+}
+
+.rick-and-morty-gallery {
+  margin: 0 auto;
+  max-width: $width-max-page;
 }
