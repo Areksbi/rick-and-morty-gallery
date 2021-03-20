@@ -1,1 +1,6 @@
+@import "styles/colors";
 @import "styles/reset";
+
+body {
+  background-color: $color-background;
+}
