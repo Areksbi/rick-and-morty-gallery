@@ -44,6 +44,10 @@ const Pagination = ({
     acc: (number | string)[],
     curr: number
   ): (number | string)[] => {
+    if (curr === firstPage) {
+      return [...acc, curr];
+    }
+
     const lastEl = acc[acc.length - 1];
     if (lastEl === firstPage && curr - 1 > firstPage) {
       acc.push('...');
