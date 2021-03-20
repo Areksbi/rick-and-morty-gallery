@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import './card-character.styles.scss';
 import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
+import { ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
 
 const Card = ({
   name,
@@ -42,7 +43,14 @@ const Card = ({
           </tr>
           <tr>
             <td>{t('gallery.character.status')}</td>
-            <td>{status}</td>
+            <td className="card__status">
+              {status === ApiRickAndMortyStatusEnum.ALIVE ? (
+                <span className="card__status-icon card__status-icon--alive"></span>
+              ) : status === ApiRickAndMortyStatusEnum.DEAD ? (
+                <span className="card__status-icon card__status-icon--dead"></span>
+              ) : null}
+              {status}
+            </td>
           </tr>
           <tr>
             <td>{t('gallery.character.location')}</td>
