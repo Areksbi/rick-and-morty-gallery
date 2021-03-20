@@ -75,23 +75,27 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
       </section>
       {res.response ? (
         <section className={'gallery__results'}>
-          <Pagination
-            goToPage={goToPage}
-            perPage={20}
-            pages={res.response.info.pages}
-            currentPage={page}
-          />
+          {res.response.info.next || res.response.info.prev ? (
+            <Pagination
+              goToPage={goToPage}
+              perPage={20}
+              pages={res.response.info.pages}
+              currentPage={page}
+            />
+          ) : null}
           <div className="gallery__card-container">
             {res.response.results.map((character: IApiRickAndMortyResult) => (
               <Card key={character.id} {...character} />
             ))}
           </div>
-          <Pagination
-            goToPage={goToPage}
-            perPage={20}
-            pages={res.response.info.pages}
-            currentPage={page}
-          />
+          {res.response.info.next || res.response.info.prev ? (
+            <Pagination
+              goToPage={goToPage}
+              perPage={20}
+              pages={res.response.info.pages}
+              currentPage={page}
+            />
+          ) : null}
         </section>
       ) : (
         <div>{t('gallery.loading.value')}</div>
