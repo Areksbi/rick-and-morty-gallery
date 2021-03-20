@@ -1,0 +1,15 @@
+@import "../../../styles/variables";
+
+.filters {
+  padding: {
+    bottom: $padding-base;
+    right: $padding-base;
+    top: $padding-base;
+  }
+  position: sticky;
+  top: 0;
+
+  &__title {
+    font-size: $font-size-subtitle;
+  }
+}

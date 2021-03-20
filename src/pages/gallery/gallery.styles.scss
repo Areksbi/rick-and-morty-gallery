@@ -1,14 +1,32 @@
+@import "../../styles/colors";
 @import "../../styles/variables";
 
 .gallery {
+  display: grid;
+  grid-gap: $margin-base;
+  grid-template-columns: 25%;
+  grid-template-areas:
+    "title title"
+    "filters results";
+
   &__card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
+  &__filters {
+    border-right: $border-width solid $color-primary;
+    grid-area: filters;
+  }
+
+  &__results {
+    grid-area: results;
+  }
+
   &__title {
     font-size: $font-size-title;
+    grid-area: title;
     margin: $margin-base 0;
   }
 }

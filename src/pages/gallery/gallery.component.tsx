@@ -12,6 +12,7 @@ import {
 } from '../../interfaces/api-rick-and-morty.interfaces';
 import { ITranslation } from '../../interfaces/core.interfaces';
 import { QueryParamsEnums } from '../../enums/query-params.enums';
+import Filters from '../../components/gallery-components/filters/filters.component';
 
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
   const [pageQueryParam, setPageQueryParam] = useQueryParams(
@@ -29,8 +30,11 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
   return (
     <div className="gallery">
       <h2 className="gallery__title">{t('gallery.title.value')}</h2>
+      <section className={'gallery__filters'}>
+        <Filters />
+      </section>
       {res.response ? (
-        <>
+        <section className={'gallery__results'}>
           <Pagination
             goToPage={goToPage}
             perPage={20}
@@ -48,7 +52,7 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
             pages={res.response.info.pages}
             currentPage={page}
           />
-        </>
+        </section>
       ) : (
         <div>{t('gallery.loading.value')}</div>
       )}
