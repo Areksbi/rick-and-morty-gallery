@@ -1,12 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import "styles/colors";
 @import "styles/reset";
 @import "styles/variables";
 
 body {
   background-color: $color-background;
+  font-family: $font-family;
+  font-size: $font-size-base;
 }
 
-.rick-and-morty-gallery {
+main {
+  flex: 1;
+  padding: $padding-base;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   max-width: $width-max-page;
+  min-height: 100vh;
 }

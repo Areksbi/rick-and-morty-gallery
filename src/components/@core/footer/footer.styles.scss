@@ -1,0 +1,30 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.footer {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: $padding-base;
+
+  &__copyright {
+    font-size: $font-size-small;
+  }
+
+  &__icons {
+    svg {
+      height: 38px;
+      width: 38px;
+    }
+  }
+
+  &__icon {
+    padding: 5px;
+
+    &-caption--hidden {
+      @include visually-hidden;
+    }
+  }
+}
