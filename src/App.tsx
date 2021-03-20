@@ -6,11 +6,13 @@ import { UrlsConst } from './constants/urls.constants';
 import GalleryPage from './pages/gallery/gallery.component';
 import Footer from './components/@core/footer/footer.component';
 import Header from './components/@core/header/header.component';
+import { useTranslation } from 'react-i18next';
 
 function App(): JSX.Element {
+  const { t } = useTranslation('common');
   return (
     <>
-      <Header />
+      <Header t={t} />
       <main>
         <Switch>
           <Route exact path={UrlsConst.ROOT}>
@@ -22,7 +24,7 @@ function App(): JSX.Element {
           </Route>
         </Switch>
       </main>
-      <Footer />
+      <Footer t={t} />
     </>
   );
 }

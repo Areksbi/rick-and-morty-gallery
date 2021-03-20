@@ -1,0 +1,16 @@
+{
+  "footer": {
+    "copyright": {
+      "label": "Roman Baran ©"
+    },
+    "linkedin": {
+      "icon": "LinkedIn icon",
+      "label": "Go to my LinkedIn profile!"
+    }
+  },
+  "header": {
+    "logo": {
+      "caption": "Rick and Morty logo"
+    }
+  }
+}
