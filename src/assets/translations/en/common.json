@@ -8,9 +8,26 @@
       "label": "Go to my LinkedIn profile!"
     }
   },
+  "gallery": {
+    "character": {
+      "genderFemale": "Female",
+      "genderMale": "Male",
+      "genderUnknown": "Unknown",
+      "imageOf": "Image of"
+    },
+    "loading": {
+      "value": "Loading..."
+    },
+    "title": {
+      "value": "Characters Gallery"
+    }
+  },
   "header": {
     "logo": {
       "caption": "Rick and Morty logo"
+    },
+    "title": {
+      "value": "Rick and Morty"
     }
   }
 }

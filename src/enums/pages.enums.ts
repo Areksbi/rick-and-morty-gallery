@@ -1,3 +1,3 @@
 export enum PagesEnum {
-  GALLERY = "gallery",
+  GALLERY = 'gallery',
 }

@@ -8,6 +8,7 @@ import { UrlsConst } from '../../../constants/urls.constants';
 
 const Header = ({ t }: ITranslation): JSX.Element => (
   <header className="header">
+    <h1 className="header__title">{t('header.title.value')}</h1>
     <Link className="logo-container" to={UrlsConst.ROOT}>
       <figure className="header__figure">
         <Logo className="header__logo" />

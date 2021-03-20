@@ -1,6 +1,6 @@
-import { PagesEnum } from "../enums/pages.enum";
+import { PagesEnum } from '../enums/pages.enums';
 
 export const UrlsConst = {
   GALLERY: `/${PagesEnum.GALLERY}`,
-  ROOT: `/`,
+  ROOT: '/',
 };

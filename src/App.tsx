@@ -8,7 +8,7 @@ import Footer from './components/@core/footer/footer.component';
 import Header from './components/@core/header/header.component';
 import { useTranslation } from 'react-i18next';
 
-function App(): JSX.Element {
+const App = (): JSX.Element => {
   const { t } = useTranslation('common');
   return (
     <>
@@ -18,7 +18,11 @@ function App(): JSX.Element {
           <Route exact path={UrlsConst.ROOT}>
             <Redirect to={UrlsConst.GALLERY} />
           </Route>
-          <Route exact path={UrlsConst.GALLERY} component={GalleryPage} />
+          <Route
+            exact
+            path={UrlsConst.GALLERY}
+            render={() => <GalleryPage t={t} />}
+          />
           <Route>
             <Redirect to={UrlsConst.GALLERY} />
           </Route>
@@ -27,6 +31,6 @@ function App(): JSX.Element {
       <Footer t={t} />
     </>
   );
-}
+};
 
 export default App;
