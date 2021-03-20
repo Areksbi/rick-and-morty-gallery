@@ -4,18 +4,25 @@ import './gallery.styles.scss';
 import Card from '../../components/gallery-components/card-character/card-character.component';
 import useFetch from '../../effects/use-fetch.effect';
 import Pagination from '../../components/gallery-components/pagination/pagination.component';
+import useQueryParams from '../../effects/use-query-params';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
   IApiRickAndMorty,
   IApiRickAndMortyResult,
 } from '../../interfaces/api-rick-and-morty.interfaces';
 import { ITranslation } from '../../interfaces/core.interfaces';
+import { QueryParamsEnums } from '../../enums/query-params.enums';
 
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
-  const [page, setPage] = useState(1);
+  const [pageQueryParam, setPageQueryParam] = useQueryParams(
+    QueryParamsEnums.PAGE,
+    ''
+  );
+  const [page, setPage] = useState(parseInt(pageQueryParam || '1', 10));
   const res = useFetch<IApiRickAndMorty>(ApiRickAndMorty.CHARACTER(page));
   const goToPage = (selectedPage: number) => {
     setPage(selectedPage);
+    setPageQueryParam(selectedPage.toString());
     window.scrollTo(0, 0);
   };
 

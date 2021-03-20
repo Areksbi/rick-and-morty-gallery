@@ -28,13 +28,13 @@ const Pagination = ({
 
     if (
       currentPage < pageToCheck &&
-      currentPage + adjacentPageToShow > pageToCheck
+      currentPage + adjacentPageToShow >= pageToCheck
     )
       return true;
 
     if (
       currentPage > pageToCheck &&
-      currentPage - adjacentPageToShow < pageToCheck
+      currentPage - adjacentPageToShow <= pageToCheck
     )
       return true;
 
