@@ -12,8 +12,10 @@ const Footer = ({ t }: ITranslation): JSX.Element => (
     <div className="footer__icons">
       <figure className="footer__icon">
         <a
-          href="https://linkedin.com/in/baran-roman/"
           aria-label={t('footer.linkedin.label')}
+          href="https://linkedin.com/in/baran-roman/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           <LinkedIn />
         </a>
