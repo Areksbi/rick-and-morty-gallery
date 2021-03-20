@@ -1,6 +1,8 @@
 export enum ApiRickAndMortyGenderEnum {
+  GENDERLESS = 'Genderless',
   MALE = 'Male',
   FEMALE = 'Female',
+  UNKNOWN = 'unknown',
 }
 
 export enum ApiRickAndMortyStatusEnum {

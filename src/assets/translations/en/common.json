@@ -18,7 +18,8 @@
       "location": "Location",
       "origin": "Origin",
       "species": "Species",
-      "status": "Status"
+      "status": "Status",
+      "type": "Type"
     },
     "loading": {
       "value": "Loading..."

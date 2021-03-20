@@ -33,10 +33,14 @@ const Card = ({
         <tbody>
           <tr>
             <td>{t('gallery.character.species')}</td>
-            <td>
-              {species} {type && <span>({type})</span>}
-            </td>
+            <td>{species}</td>
           </tr>
+          {type && (
+            <tr>
+              <td>{t('gallery.character.type')}</td>
+              <td>{type}</td>
+            </tr>
+          )}
           <tr>
             <td>{t('gallery.character.gender')}</td>
             <td>{gender}</td>
