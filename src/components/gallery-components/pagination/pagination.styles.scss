@@ -1,0 +1,26 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.pagination {
+  margin: $margin-base;
+  text-align: center;
+
+  &__button {
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: $margin-base / 2;
+    min-width: $width-min-clickable;
+    padding: $padding-base;
+    font-size: $font-size-base;
+
+    &:hover:not(&--disabled),
+    &--active:not(&--disabled) {
+      background-color: $color-secondary;
+    }
+
+    &:not(&--active):not(&--disabled) {
+      cursor: pointer;
+    }
+  }
+}
