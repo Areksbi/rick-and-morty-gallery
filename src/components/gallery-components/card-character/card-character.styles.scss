@@ -5,6 +5,7 @@
 .card {
   $border-width: 1px;
   $width-image: 280px;
+  $width-image-real: 300px;
 
   @include box-shadow($v-offset: 0, $spread-radius: 0);
 
@@ -32,9 +33,20 @@
   }
 
   &__image {
+    display: inherit;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    width: $width-image;
+
+    &:hover {
+      transform: scale(#{$width-image-real / $width-image});
+    }
+  }
+
+  &__image-container {
     border: $border-width solid $color-primary;
     margin-bottom: $margin-base;
-    width: $width-image;
+    overflow: hidden;
   }
 
   &__title {

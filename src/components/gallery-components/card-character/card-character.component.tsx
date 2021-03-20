@@ -19,11 +19,13 @@ const Card = ({
     <article className="card">
       <header>
         <h3 className="card__title">{name}</h3>
-        <img
-          className="card__image"
-          src={image}
-          alt={`${t('gallery.character.imageOf')} ${name}`}
-        />
+        <div className="card__image-container">
+          <img
+            className="card__image"
+            src={image}
+            alt={`${t('gallery.character.imageOf')} ${name}`}
+          />
+        </div>
       </header>
 
       <table className="card__info">
