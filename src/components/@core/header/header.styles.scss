@@ -1,0 +1,9 @@
+@import "../../../styles/colors";
+
+.header {
+  &__logo {
+    stroke: $color-secondary;
+    stroke-opacity: 0.8;
+    stroke-width: 2px;
+  }
+}
