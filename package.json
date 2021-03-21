@@ -1,7 +1,7 @@
 {
   "name": "rick-and-morty-gallery",
   "description": "A simple gallery on the characters of Rick and Morty.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
@@ -12,8 +12,7 @@
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "reset-css": "^5.0.1",
-    "web-vitals": "^1.0.1"
+    "reset-css": "^5.0.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
