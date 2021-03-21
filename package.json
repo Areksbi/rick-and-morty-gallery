@@ -1,6 +1,6 @@
 {
   "name": "rick-and-morty-gallery",
-  "description": "A simple gallery on the characters of Rick and Morty.",
+  "description": "A simple gallery of Rick and Morty characters.",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
