@@ -42,6 +42,7 @@
       "type": "Type"
     },
     "loading": {
+      "empty": "There are no results that match your search",
       "value": "Loading..."
     },
     "title": {

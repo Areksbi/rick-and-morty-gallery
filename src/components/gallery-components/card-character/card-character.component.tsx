@@ -3,10 +3,7 @@ import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import './card-character.styles.scss';
-import {
-  ApiRickAndMortyLocationEnums,
-  ApiRickAndMortyStatusEnum,
-} from '../../../enums/api-rick-and-morty.enums';
+import { ApiRickAndMortyLocationEnums, ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
 import {
   IApiRickAndMortyCharactersResult,
   IApiRickAndMortyEpisode,
@@ -21,22 +18,10 @@ import TableLocation from '../table-location/table-location.component';
 
 const mapDispatchToProps = { dispatchShowModal: showModal };
 const connector = connect(undefined, mapDispatchToProps);
-type CardProps = IApiRickAndMortyCharactersResult &
-  ConnectedProps<typeof connector>;
+type CardProps = IApiRickAndMortyCharactersResult & ConnectedProps<typeof connector>;
 
-const Card = ({
-  name,
-  image,
-  gender,
-  location,
-  origin,
-  species,
-  status,
-  type,
-  episode,
-  dispatchShowModal,
-}: CardProps): JSX.Element => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+const Card = ({ name, image, gender, location, origin, species, status, type, episode, dispatchShowModal }: CardProps): JSX.Element => {
+  const [t] = useTranslation(TranslationsEnums.COMMON);
   const onEpisodesClick = async () => {
     // @ts-ignore
     const listEpisodes: string[] = episode
@@ -49,9 +34,7 @@ const Card = ({
       content: <Episodes episodes={json} />,
     });
   };
-  const onLocationClick = async (
-    locationToSearch: IApiRickAndMortyLocation
-  ) => {
+  const onLocationClick = async (locationToSearch: IApiRickAndMortyLocation) => {
     const locationId = locationToSearch.url.split('/').pop();
     if (!locationId) return;
 
@@ -59,13 +42,7 @@ const Card = ({
     const json: IApiRickAndMortyLocationResponse = await res.json();
     dispatchShowModal({
       title: `${locationToSearch.name}`,
-      content: (
-        <TableLocation
-          residents={json.residents.length}
-          type={json.type}
-          dimension={json.dimension}
-        />
-      ),
+      content: <TableLocation residents={json.residents.length} type={json.type} dimension={json.dimension} />,
     });
   };
 
@@ -74,11 +51,7 @@ const Card = ({
       <header>
         <h3 className="card__title">{name}</h3>
         <div className="card__image-container">
-          <img
-            className="card__image"
-            src={image}
-            alt={`${t('gallery.character.imageOf')} ${name}`}
-          />
+          <img className="card__image" src={image} alt={`${t('gallery.character.imageOf')} ${name}`} />
         </div>
       </header>
       <table className="card__info">
@@ -114,16 +87,9 @@ const Card = ({
               {location.name === ApiRickAndMortyLocationEnums.UNKNOWN ? (
                 <span>{location.name}</span>
               ) : (
-                <button
-                  className={'card__location-button'}
-                  onClick={() => onLocationClick(location)}
-                >
-                  <span className={'card__location-label--hidden'}>
-                    {t('gallery.character.clickToOpen')}
-                  </span>
-                  <span className={'card__location-label'}>
-                    {location.name} &#8599;
-                  </span>
+                <button className={'card__location-button'} onClick={() => onLocationClick(location)}>
+                  <span className={'card__location-label--hidden'}>{t('gallery.character.clickToOpen')}</span>
+                  <span className={'card__location-label'}>{location.name} &#8599;</span>
                 </button>
               )}
             </td>
@@ -134,32 +100,18 @@ const Card = ({
               {origin.name === ApiRickAndMortyLocationEnums.UNKNOWN ? (
                 <span>{origin.name}</span>
               ) : (
-                <button
-                  className={'card__origin-button'}
-                  onClick={() => onLocationClick(origin)}
-                >
-                  <span className={'card__origin-label--hidden'}>
-                    {t('gallery.character.clickToOpen')}
-                  </span>
-                  <span className={'card__origin-label'}>
-                    {origin.name} &#8599;
-                  </span>
+                <button className={'card__origin-button'} onClick={() => onLocationClick(origin)}>
+                  <span className={'card__origin-label--hidden'}>{t('gallery.character.clickToOpen')}</span>
+                  <span className={'card__origin-label'}>{origin.name} &#8599;</span>
                 </button>
               )}
             </td>
           </tr>
           <tr>
             <td className={'card__episodes'} colSpan={2}>
-              <button
-                className={'card__episodes-button'}
-                onClick={onEpisodesClick}
-              >
-                <span className={'card__episodes-label--hidden'}>
-                  {t('gallery.character.clickToOpen')}
-                </span>
-                <span className={'card__episodes-label'}>
-                  {t('gallery.character.episodes')} &#8599;
-                </span>
+              <button className={'card__episodes-button'} onClick={onEpisodesClick}>
+                <span className={'card__episodes-label--hidden'}>{t('gallery.character.clickToOpen')}</span>
+                <span className={'card__episodes-label'}>{t('gallery.character.episodes')} &#8599;</span>
               </button>
             </td>
           </tr>

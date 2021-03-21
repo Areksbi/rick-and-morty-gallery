@@ -10,7 +10,7 @@ interface ITableLocation {
 }
 
 const TableLocation = ({ type, dimension, residents }: ITableLocation) => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
   return (
     <table className={'table-location'}>
       <tbody>

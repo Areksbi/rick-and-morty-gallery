@@ -6,7 +6,7 @@ import { TranslationsEnums } from '../../../enums/translations.enums';
 import { useTranslation } from 'react-i18next';
 
 const Footer = (): JSX.Element => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
     <footer className="footer">

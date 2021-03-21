@@ -22,7 +22,7 @@ export interface IFilters {
 }
 
 const Filters = ({ name, species, type, status, gender, setName, setSpecies, setType, setStatus, setGender }: IFilters) => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
   const statusOptions: ISelectOption[] = [
     {
       label: ApiRickAndMortyStatusEnum.ALIVE,

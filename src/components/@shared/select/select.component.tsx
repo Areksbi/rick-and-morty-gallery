@@ -4,7 +4,7 @@ import { TranslationsEnums } from '../../../enums/translations.enums';
 import { useTranslation } from 'react-i18next';
 
 const Select = ({ handleChange, label, options, ...otherProps }: ISelectProps) => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
     <div className="select">

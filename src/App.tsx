@@ -11,7 +11,7 @@ import Header from './components/@core/header/header.component';
 import Modal from './components/@core/modal/modal.component';
 
 const App = (): JSX.Element => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
     <>

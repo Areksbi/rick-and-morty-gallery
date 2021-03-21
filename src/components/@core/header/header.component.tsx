@@ -8,7 +8,7 @@ import { UrlsConst } from '../../../constants/urls.constants';
 import { useTranslation } from 'react-i18next';
 
 const Header = (): JSX.Element => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
     <header className="header">

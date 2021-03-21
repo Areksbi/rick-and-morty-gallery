@@ -9,28 +9,20 @@ interface IEpisodes {
 }
 
 const Episodes = ({ episodes }: IEpisodes) => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+  const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
     <table className={'episodes'}>
       <thead>
         <tr className={'episodes__row episodes__row--border'}>
-          <th className={'episodes__cell episodes__cell--left'}>
-            {t('episodes.table.episode')}
-          </th>
-          <th className={'episodes__cell episodes__cell--left'}>
-            {t('episodes.table.name')}
-          </th>
-          <th className={'episodes__cell episodes__cell--left'}>
-            {t('episodes.table.airDate')}
-          </th>
+          <th className={'episodes__cell episodes__cell--left'}>{t('episodes.table.episode')}</th>
+          <th className={'episodes__cell episodes__cell--left'}>{t('episodes.table.name')}</th>
+          <th className={'episodes__cell episodes__cell--left'}>{t('episodes.table.airDate')}</th>
         </tr>
       </thead>
       <tbody>
         {(Array.isArray(episodes) ? episodes : [episodes])
-          .sort((a: IApiRickAndMortyEpisode, b: IApiRickAndMortyEpisode) =>
-            a.episode.localeCompare(b.episode)
-          )
+          .sort((a: IApiRickAndMortyEpisode, b: IApiRickAndMortyEpisode) => a.episode.localeCompare(b.episode))
           .map(({ episode, air_date, name, id }: IApiRickAndMortyEpisode) => (
             <tr className={'episodes__row'} key={`episode-${id}`}>
               <td className={'episodes__cell'}>{episode}</td>
