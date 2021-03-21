@@ -1,7 +1,5 @@
-@import "../../styles/breakpoints";
-@import "../../styles/colors";
-@import "../../styles/mixins";
-@import "../../styles/variables";
+@import '../../styles/mixins';
+@import '../../styles/variables';
 
 .gallery {
   display: grid;
@@ -9,16 +7,16 @@
 
   @include media($to: tbl-l) {
     grid-template-areas:
-      "title"
-      "filters"
-      "results";
+      'title'
+      'filters'
+      'results';
   }
 
   @include media($from: tbl-l) {
     grid-template-columns: 25%;
     grid-template-areas:
-      "title title"
-      "filters results";
+      'title title'
+      'filters results';
   }
 
   &__card-container {

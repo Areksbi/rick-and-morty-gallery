@@ -2,7 +2,6 @@ import { IApiRickAndMortyCharacter } from '../interfaces/api-rick-and-morty.inte
 
 const ApiBase = {
   RICK_AND_MORTY_API: 'https://rickandmortyapi.com/api',
-  ROOT: '',
 };
 
 export const ApiRickAndMorty = {
@@ -11,8 +10,6 @@ export const ApiRickAndMorty = {
     const queryParams = new URLSearchParams(request).toString();
     return `${ApiBase.RICK_AND_MORTY_API}/character?${queryParams}`;
   },
-  EPISODES: (episodes: string[]): string =>
-    `${ApiBase.RICK_AND_MORTY_API}/episode/${episodes}`,
-  LOCATION: (location: string): string =>
-    `${ApiBase.RICK_AND_MORTY_API}/location/${location}`,
+  EPISODES: (episodes: string[]): string => `${ApiBase.RICK_AND_MORTY_API}/episode/${episodes}`,
+  LOCATION: (location: string): string => `${ApiBase.RICK_AND_MORTY_API}/location/${location}`,
 };

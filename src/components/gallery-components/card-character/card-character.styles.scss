@@ -1,26 +1,22 @@
-@import "../../../styles/breakpoints";
-@import "../../../styles/colors";
-@import "../../../styles/mixins";
-@import "../../../styles/variables";
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .card {
   $width-image-small: 225px;
   $width-image: 280px;
   $width-image-real: 300px;
 
+  @include box-shadow($v-offset: 0, $spread-radius: 0);
   @include media($to: tbl-l) {
     --width-image: #{$width-image-small};
   }
   @include media($from: tbl-l) {
     --width-image: #{$width-image};
   }
-  @include box-shadow($v-offset: 0, $spread-radius: 0);
 
-  border-radius: 8px;
+  border-radius: $border-radius;
   margin: $margin-base $margin-base / 2;
-  max-width: calc(
-    var(--width-image) + #{$padding-base * 2 + $border-width * 2}
-  );
+  max-width: calc(var(--width-image) + #{$padding-base * 2 + $border-width * 2});
   padding: $padding-base;
 
   tr {
@@ -66,7 +62,7 @@
   &__image {
     display: inherit;
     transform: translateZ(0);
-    transition: transform $transition-speed ease-out;
+    transition: transform $transition-speed $transition-effect;
     width: var(--width-image);
 
     @include media($from: tbl-l) {
@@ -97,15 +93,15 @@
       border-radius: 50%;
       display: inline-block;
       margin-right: $margin-base / 2;
-      height: 0.5rem;
-      width: 0.5rem;
+      height: $font-size-base / 2;
+      width: $font-size-base / 2;
 
       &--alive {
-        background: $color-success;
+        background-color: $color-success;
       }
 
       &--dead {
-        background: $color-error;
+        background-color: $color-error;
       }
     }
   }

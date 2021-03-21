@@ -1,4 +1,4 @@
-import { IModalProps } from '../../components/@shared/modal/modal.interfaces';
+import { IModalProps } from '../../components/@core/modal/modal.interfaces';
 
 export enum ModalActionTypesEnum {
   SHOW_MODAL,

@@ -1,14 +1,16 @@
-@import "../../../styles/mixins";
-@import "../../../styles/variables";
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .footer {
+  $svg-dimension: 40px;
+
   @include box-shadow($v-offset: -8px);
 
   &__container {
     @include max-width;
 
     align-items: center;
-    color: white;
+    color: $color-tertiary;
     display: flex;
     flex-shrink: 0;
     justify-content: space-between;
@@ -22,13 +24,13 @@
 
   &__icons {
     svg {
-      height: 38px;
-      width: 38px;
+      height: $svg-dimension;
+      width: $svg-dimension;
     }
   }
 
   &__icon {
-    padding: 5px;
+    padding: ($width-min-clickable - $svg-dimension) / 2;
 
     &-caption--hidden {
       @include visually-hidden;

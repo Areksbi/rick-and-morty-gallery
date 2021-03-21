@@ -1,16 +1,12 @@
 import './table-location.styles.scss';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ITableLocationProps } from './table-location.interfaces';
 import { TranslationsEnums } from '../../../enums/translations.enums';
 
-interface ITableLocation {
-  dimension: string;
-  type: string;
-  residents: number;
-}
-
-const TableLocation = ({ type, dimension, residents }: ITableLocation) => {
-  const { t } = useTranslation(TranslationsEnums.COMMON);
+const TableLocation = ({ type, dimension, residents }: ITableLocationProps) => {
+  const [t] = useTranslation(TranslationsEnums.COMMON);
   return (
     <table className={'table-location'}>
       <tbody>

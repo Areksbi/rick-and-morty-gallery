@@ -1,6 +1,5 @@
-@import "../../../styles/breakpoints";
-@import "../../../styles/colors";
-@import "../../../styles/variables";
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .filters {
   margin-top: $margin-base / 2;
@@ -10,7 +9,7 @@
   }
 
   @include media($from: tbl-l) {
-    padding-right: $padding-base + $padding-base / 2;
+    padding-right: $padding-base * 1.5;
     position: sticky;
     top: 0;
   }
