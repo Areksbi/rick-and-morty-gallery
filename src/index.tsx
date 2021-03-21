@@ -9,7 +9,7 @@ import './index.scss';
 import App from './App';
 import common_en from './assets/translations/en/common.json';
 import reportWebVitals from './reportWebVitals';
-import store from './store';
+import store from './store/store';
 
 i18next.init({
   interpolation: { escapeValue: false },

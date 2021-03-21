@@ -1,0 +1,31 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.modal {
+  background-color: $white;
+  border: $border-width solid $color-primary;
+  border-radius: 2px;
+  padding: $padding-base;
+  position: relative;
+
+  &-close {
+    cursor: pointer;
+    font-size: $font-size-subtitle;
+    position: absolute;
+    right: $margin-base / 2;
+    top: $margin-base / 2;
+  }
+
+  &-overlay {
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: $z-index-modal;
+  }
+}
