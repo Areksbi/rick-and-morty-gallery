@@ -18,8 +18,8 @@ const App = (): JSX.Element => {
       <a className="skip-to-main" href="#gallery-results">
         {t('core.skipToMain.label')}
       </a>
-      <Header t={t} />
-      <main id={'main'}>
+      <Header />
+      <main>
         <div className="main-container">
           <Switch>
             <Route exact path={UrlsConst.ROOT}>
@@ -32,7 +32,7 @@ const App = (): JSX.Element => {
           </Switch>
         </div>
       </main>
-      <Footer t={t} />
+      <Footer />
       <Modal />
     </>
   );
