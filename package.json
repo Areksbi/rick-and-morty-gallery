@@ -15,10 +15,6 @@
     "reset-css": "^5.0.1"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -38,8 +34,7 @@
     "eject": "react-scripts eject",
     "lint-staged": "lint-staged",
     "postinstall": "husky install",
-    "start": "DISABLE_ESLINT=true react-scripts start",
-    "test": "node_modules/.bin/react-scripts test"
+    "start": "DISABLE_ESLINT=true react-scripts start"
   },
   "browserslist": {
     "production": [
