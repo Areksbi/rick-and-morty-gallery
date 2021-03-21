@@ -22,13 +22,13 @@ i18next.init({
 });
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
+  <Provider store={store}>
+    <BrowserRouter>
       <I18nextProvider i18n={i18next}>
         <App />
       </I18nextProvider>
-    </Provider>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
 
