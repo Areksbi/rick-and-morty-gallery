@@ -34,7 +34,7 @@
   &__image {
     display: inherit;
     transform: translateZ(0);
-    transition: transform 0.25s ease-out;
+    transition: transform $transition-speed ease-out;
     width: $width-image;
 
     &:hover {

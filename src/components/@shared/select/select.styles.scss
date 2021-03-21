@@ -2,7 +2,7 @@
 @import "../../../styles/mixins";
 @import "../../../styles/variables";
 
-.input {
+.select {
   $root: &;
 
   margin: calc(#{$margin-base} + #{$font-size-base * 2}) 0;
@@ -19,10 +19,6 @@
     font-size: $font-size-base;
     padding: $padding-base;
     width: 100%;
-
-    &:focus ~ #{$root}__label {
-      @include shrink-label;
-    }
   }
 
   &__label {
@@ -33,8 +29,6 @@
     top: $margin-base;
     transition: $transition-speed ease all;
 
-    &--shrink {
-      @include shrink-label;
-    }
+    @include shrink-label;
   }
 }

@@ -5,6 +5,8 @@ import {
   ApiRickAndMortyStatusEnum,
 } from '../../../enums/api-rick-and-morty.enums';
 import Input from '../../@shared/input/input.component';
+import Select, { ISelectOption } from '../../@shared/select/select.component';
+import Button from '../../@shared/button/button.component';
 
 export interface IFilters {
   name: string;
@@ -31,6 +33,43 @@ const Filters = ({
   setStatus,
   setGender,
 }: IFilters) => {
+  const statusOptions: ISelectOption[] = [
+    {
+      label: ApiRickAndMortyStatusEnum.ALIVE,
+      value: ApiRickAndMortyStatusEnum.ALIVE,
+    },
+    {
+      label: ApiRickAndMortyStatusEnum.DEAD,
+      value: ApiRickAndMortyStatusEnum.DEAD,
+    },
+    {
+      label: ApiRickAndMortyStatusEnum.UNKNOWN,
+      value: ApiRickAndMortyStatusEnum.UNKNOWN,
+    },
+  ];
+  const genderOptions: ISelectOption[] = [
+    {
+      label: ApiRickAndMortyGenderEnum.MALE,
+      value: ApiRickAndMortyGenderEnum.MALE,
+    },
+    {
+      label: ApiRickAndMortyGenderEnum.FEMALE,
+      value: ApiRickAndMortyGenderEnum.FEMALE,
+    },
+    {
+      label: ApiRickAndMortyGenderEnum.GENDERLESS,
+      value: ApiRickAndMortyGenderEnum.GENDERLESS,
+    },
+    {
+      label: ApiRickAndMortyGenderEnum.UNKNOWN,
+      value: ApiRickAndMortyGenderEnum.UNKNOWN,
+    },
+  ];
+
+  const resetAllFilters = (): void => {
+    setName(''), setSpecies(''), setType(''), setStatus(''), setGender('');
+  };
+
   return (
     <div className={'filters'}>
       <header>
@@ -67,46 +106,32 @@ const Filters = ({
         label="Type"
       />
 
-      <label htmlFor={'filters__status'}>Status:</label>
-      <select
+      <Select
+        name="status"
         id={'filters__status'}
-        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+        value={status}
+        handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setStatus(e.target.value)
         }
-      >
-        <option value="">All</option>
-        <option value={ApiRickAndMortyStatusEnum.ALIVE}>
-          {ApiRickAndMortyStatusEnum.ALIVE}
-        </option>
-        <option value={ApiRickAndMortyStatusEnum.DEAD}>
-          {ApiRickAndMortyStatusEnum.DEAD}
-        </option>
-        <option value={ApiRickAndMortyStatusEnum.UNKNOWN}>
-          {ApiRickAndMortyStatusEnum.UNKNOWN}
-        </option>
-      </select>
+        label="Status"
+        options={statusOptions}
+      />
 
-      <label htmlFor={'filters__gender'}>Gender:</label>
-      <select
+      <Select
+        name="gender"
         id={'filters__gender'}
-        onChange={(e: ChangeEvent<HTMLSelectElement>) =>
+        value={gender}
+        handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setGender(e.target.value)
         }
-      >
-        <option value="">All</option>
-        <option value={ApiRickAndMortyGenderEnum.MALE}>
-          {ApiRickAndMortyGenderEnum.MALE}
-        </option>
-        <option value={ApiRickAndMortyGenderEnum.FEMALE}>
-          {ApiRickAndMortyGenderEnum.FEMALE}
-        </option>
-        <option value={ApiRickAndMortyGenderEnum.GENDERLESS}>
-          {ApiRickAndMortyGenderEnum.GENDERLESS}
-        </option>
-        <option value={ApiRickAndMortyGenderEnum.UNKNOWN}>
-          {ApiRickAndMortyGenderEnum.UNKNOWN}
-        </option>
-      </select>
+        label="Gender"
+        options={genderOptions}
+      />
+      <Button
+        className={'filters__reset'}
+        onClick={resetAllFilters}
+        label={'Reset all filters'}
+      />
     </div>
   );
 };

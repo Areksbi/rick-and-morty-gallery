@@ -4,7 +4,7 @@ import './gallery.styles.scss';
 import Card from '../../components/gallery-components/card-character/card-character.component';
 import useFetch from '../../effects/use-fetch.effect';
 import Pagination from '../../components/gallery-components/pagination/pagination.component';
-import useQueryParams from '../../effects/use-query-params';
+import useQueryParams from '../../effects/use-query-params.effect';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
   IApiRickAndMorty,
