@@ -16,6 +16,9 @@
   "gallery": {
     "character": {
       "gender": "Gender",
+      "episodes": "List of episodes",
+      "episodesHidden": "Click here to open:",
+      "episodesWith": "Episodes with",
       "imageOf": "Image of",
       "location": "Last Location",
       "origin": "Origin",

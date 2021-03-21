@@ -24,8 +24,8 @@ const Modal = ({ dispatchHideModal, modal }: ModalProps) => {
         <span className="modal-close" onClick={onCloseButtonClick}>
           &#10005;
         </span>
-        <h1>{modal.title}</h1>
-        <p>{modal.description}</p>
+        <h3>{modal.title}</h3>
+        <div>{modal.content}</div>
       </div>
     </div>
   );

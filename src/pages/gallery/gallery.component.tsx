@@ -1,21 +1,24 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import './gallery.styles.scss';
-import Card from '../../components/gallery-components/card-character/card-character.component';
-import useFetch from '../../effects/use-fetch.effect';
-import Pagination from '../../components/gallery-components/pagination/pagination.component';
-import useQueryParams from '../../effects/use-query-params.effect';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
   IApiRickAndMorty,
   IApiRickAndMortyResult,
 } from '../../interfaces/api-rick-and-morty.interfaces';
-import { ITranslation } from '../../interfaces/core.interfaces';
 import { QueryParamsConst } from '../../constants/query-params.constants';
+import { TranslationsEnums } from '../../enums/translations.enums';
+import Card from '../../components/gallery-components/card-character/card-character.component';
 import Filters from '../../components/gallery-components/filters/filters.component';
+import Pagination from '../../components/gallery-components/pagination/pagination.component';
+import useFetch from '../../effects/use-fetch.effect';
 import useMediaQuery from '../../effects/use-media-query.effect';
+import useQueryParams from '../../effects/use-query-params.effect';
 
-const GalleryPage = ({ t }: ITranslation): JSX.Element => {
+const GalleryPage = (): JSX.Element => {
+  const { t } = useTranslation(TranslationsEnums.COMMON);
+
   const [pageParam, setPageParam] = useQueryParams(QueryParamsConst.PAGE, '');
   const [name, setName] = useQueryParams(QueryParamsConst.NAME, '');
   const [species, setSpecies] = useQueryParams(QueryParamsConst.SPECIES, '');

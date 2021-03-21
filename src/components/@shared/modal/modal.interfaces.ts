@@ -1,4 +1,4 @@
 export interface IModalProps {
   title: string;
-  description: JSX.Element;
+  content: JSX.Element;
 }

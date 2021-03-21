@@ -1,10 +1,16 @@
 import React from 'react';
+import { connect, ConnectedProps } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import './card-character.styles.scss';
-import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
 import { ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
+import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
+import { showModal } from '../../../store/modal/modal.actions';
 import { TranslationsEnums } from '../../../enums/translations.enums';
+
+const mapDispatchToProps = { dispatchShowModal: showModal };
+const connector = connect(undefined, mapDispatchToProps);
+type CardProps = IApiRickAndMortyResult & ConnectedProps<typeof connector>;
 
 const Card = ({
   name,
@@ -15,7 +21,8 @@ const Card = ({
   species,
   status,
   type,
-}: IApiRickAndMortyResult): JSX.Element => {
+  dispatchShowModal,
+}: CardProps): JSX.Element => {
   const { t } = useTranslation(TranslationsEnums.COMMON);
   return (
     <article className="card">
@@ -64,20 +71,28 @@ const Card = ({
             <td>{t('gallery.character.origin')}</td>
             <td>{origin.name}</td>
           </tr>
+          <tr>
+            <td className={'card__episodes'} colSpan={2}>
+              <button
+                className={'card__episodes-button'}
+                onClick={() => {
+                  dispatchShowModal({
+                    title: `${t('gallery.character.episodesWith')} ${name}`,
+                    content: <div>Hello</div>,
+                  });
+                }}
+              >
+                <span className={'card__episodes-label'}>
+                  IModalProps {t('gallery.character.episodesHidden')}
+                </span>
+                {t('gallery.character.episodes')} &#8599;
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
-      {/*<section>*/}
-      {/*  <h4>Episodes</h4>*/}
-      {/*  <ul>*/}
-      {/*    {*/}
-      {/*      episode.map((ep: string) => (*/}
-      {/*        <li>{ep}</li>*/}
-      {/*      ))*/}
-      {/*    }*/}
-      {/*  </ul>*/}
-      {/*</section>*/}
     </article>
   );
 };
 
-export default Card;
+export default connector(Card);
