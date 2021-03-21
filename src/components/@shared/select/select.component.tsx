@@ -18,9 +18,13 @@ export interface ISelectOption {
 const Select = ({ handleChange, label, options, ...otherProps }: ISelect) => (
   <div className="select">
     <select className="select__field" onChange={handleChange} {...otherProps}>
-      <option value="">All</option>
+      <option className="select__option" value="">
+        All
+      </option>
       {options.map((option: ISelectOption) => (
-        <option value={option.value}>{option.label}</option>
+        <option className="select__option" value={option.value}>
+          {option.label}
+        </option>
       ))}
     </select>
     {label ? (
