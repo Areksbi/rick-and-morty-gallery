@@ -39,7 +39,7 @@ const GalleryPage = (): JSX.Element => {
     setState(value);
   };
   const pagination = (info: IApiRickAndMortyInfo | undefined) =>
-    info?.pages && info.pages > 1 && <Pagination goToPage={goToPage} perPage={20} pages={info.pages} currentPage={parseInt(page)} />;
+    info?.pages && info.pages > 1 && <Pagination goToPage={goToPage} pages={info.pages} currentPage={parseInt(page)} />;
 
   return (
     <div className="gallery">

@@ -2,8 +2,6 @@
 @import '../../../styles/variables';
 
 .pagination {
-  $transition-effect: linear;
-
   text-align: center;
 
   @include media($from: tbl-p) {
