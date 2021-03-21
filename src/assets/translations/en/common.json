@@ -1,4 +1,9 @@
 {
+  "core": {
+    "skipToMain": {
+      "label": "Skip to gallery"
+    }
+  },
   "footer": {
     "copyright": {
       "label": "Roman Baran ©"

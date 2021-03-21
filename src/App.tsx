@@ -12,8 +12,11 @@ const App = (): JSX.Element => {
   const { t } = useTranslation('common');
   return (
     <>
+      <a className="skip-to-main" href="#gallery-results">
+        {t('core.skipToMain.label')}
+      </a>
       <Header t={t} />
-      <main>
+      <main id={'main'}>
         <div className="main-container">
           <Switch>
             <Route exact path={UrlsConst.ROOT}>

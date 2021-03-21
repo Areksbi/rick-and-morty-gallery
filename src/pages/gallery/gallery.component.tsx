@@ -67,7 +67,7 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
         />
       </section>
       {res?.response || !res.response?.error ? (
-        <section className={'gallery__results'}>
+        <section className={'gallery__results'} id={'gallery-results'}>
           {shouldShowDoublePagination &&
           (res.response?.info?.next || res.response?.info?.prev) ? (
             <Pagination
