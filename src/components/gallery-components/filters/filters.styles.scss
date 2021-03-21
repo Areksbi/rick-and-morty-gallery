@@ -6,13 +6,17 @@
   margin-top: $margin-base / 2;
   padding: {
     bottom: $padding-base;
-    right: $padding-base + $padding-base / 2;
     top: $padding-base;
   }
 
   @include media($from: tbl-l) {
+    padding-right: $padding-base + $padding-base / 2;
     position: sticky;
     top: 0;
+  }
+
+  &__reset {
+    margin-bottom: $margin-base;
   }
 
   &__title {

@@ -5,16 +5,13 @@
 .select {
   $root: &;
 
+  border-bottom: $border-width solid $color-primary;
   margin: calc(#{$margin-base} + #{$font-size-base * 2}) 0;
+  padding-right: $padding-base;
   position: relative;
 
   &__field {
-    border: {
-      bottom: $border-width solid $color-primary;
-      left: none;
-      right: none;
-      top: none;
-    }
+    border: none;
     display: block;
     font-size: $font-size-base;
     padding: $padding-base;
