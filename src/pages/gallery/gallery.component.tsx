@@ -8,6 +8,7 @@ import {
   IApiRickAndMortyCharactersResult,
   IApiRickAndMortyInfo,
 } from '../../interfaces/api-rick-and-morty.interfaces';
+import { optionsGender, optionsStatus } from './gallery.data';
 import { QueryParamsConst } from '../../constants/query-params.constants';
 import { TranslationsEnums } from '../../enums/translations.enums';
 import Card from '../../components/gallery-components/card-character/card-character.component';
@@ -47,6 +48,8 @@ const GalleryPage = (): JSX.Element => {
       <section className={'gallery__filters'}>
         <Filters
           {...request}
+          optionsGender={optionsGender}
+          optionsStatus={optionsStatus}
           setName={(value: string) => onFiltersChange(setName, value)}
           setSpecies={(value: string) => onFiltersChange(setSpecies, value)}
           setType={(value: string) => onFiltersChange(setType, value)}
