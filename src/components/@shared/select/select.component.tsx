@@ -25,8 +25,12 @@ const Select = ({ handleChange, label, options, ...otherProps }: ISelect) => {
         <option className="select__option" value="">
           {t('select.option.all')}
         </option>
-        {options.map((option: ISelectOption) => (
-          <option className="select__option" value={option.value}>
+        {options.map((option: ISelectOption, i: number) => (
+          <option
+            key={`${otherProps.id}-${i}`}
+            className="select__option"
+            value={option.value}
+          >
             {option.label}
           </option>
         ))}
