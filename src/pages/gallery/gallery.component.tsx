@@ -13,6 +13,7 @@ import {
 import { ITranslation } from '../../interfaces/core.interfaces';
 import { QueryParamsConst } from '../../constants/query-params.constants';
 import Filters from '../../components/gallery-components/filters/filters.component';
+import useMediaQuery from '../../effects/use-media-query.effect';
 
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
   const [pageParam, setPageParam] = useQueryParams(QueryParamsConst.PAGE, '');
@@ -22,6 +23,7 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
   const [status, setStatus] = useQueryParams(QueryParamsConst.STATUS, '');
   const [gender, setGender] = useQueryParams(QueryParamsConst.GENDER, '');
 
+  const shouldShowDoublePagination = useMediaQuery('(min-width: 1024px)');
   const [page, setPage] = useState(parseInt(pageParam || '1', 10));
   const res = useFetch<IApiRickAndMorty>(
     ApiRickAndMorty.CHARACTER({
@@ -66,7 +68,8 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
       </section>
       {res?.response || !res.response?.error ? (
         <section className={'gallery__results'}>
-          {res.response?.info?.next || res.response?.info?.prev ? (
+          {shouldShowDoublePagination &&
+          (res.response?.info?.next || res.response?.info?.prev) ? (
             <Pagination
               goToPage={goToPage}
               perPage={20}

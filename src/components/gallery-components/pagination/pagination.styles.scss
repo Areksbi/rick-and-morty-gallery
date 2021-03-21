@@ -1,11 +1,15 @@
+@import "../../../styles/breakpoints";
 @import "../../../styles/colors";
 @import "../../../styles/variables";
 
 .pagination {
   $transition-effect: linear;
 
-  margin: $margin-base;
   text-align: center;
+
+  @include media($from: tbl-p) {
+    margin: $margin-base;
+  }
 
   &__button {
     border: none;
@@ -24,6 +28,13 @@
 
     &:not(&--active):not(&--disabled) {
       cursor: pointer;
+    }
+  }
+
+  @include media($to: tbl-l) {
+    &__container {
+      position: sticky;
+      top: 0;
     }
   }
 }

@@ -1,16 +1,26 @@
+@import "../../../styles/breakpoints";
 @import "../../../styles/colors";
 @import "../../../styles/mixins";
 @import "../../../styles/variables";
 
 .card {
+  $width-image-small: 225px;
   $width-image: 280px;
   $width-image-real: 300px;
 
+  @include media($to: tbl-l) {
+    --width-image: #{$width-image-small};
+  }
+  @include media($from: tbl-l) {
+    --width-image: #{$width-image};
+  }
   @include box-shadow($v-offset: 0, $spread-radius: 0);
 
   border-radius: 8px;
   margin: $margin-base $margin-base / 2;
-  max-width: #{$width-image + $padding-base * 2 + $border-width * 2};
+  max-width: calc(
+    var(--width-image) + #{$padding-base * 2 + $border-width * 2}
+  );
   padding: $padding-base;
 
   tr {
@@ -35,10 +45,12 @@
     display: inherit;
     transform: translateZ(0);
     transition: transform $transition-speed ease-out;
-    width: $width-image;
+    width: var(--width-image);
 
-    &:hover {
-      transform: scale(#{$width-image-real / $width-image});
+    @include media($from: tbl-l) {
+      &:hover {
+        transform: scale(#{$width-image-real / $width-image});
+      }
     }
   }
 

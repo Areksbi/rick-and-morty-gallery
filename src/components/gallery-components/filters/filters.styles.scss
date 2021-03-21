@@ -1,3 +1,4 @@
+@import "../../../styles/breakpoints";
 @import "../../../styles/colors";
 @import "../../../styles/variables";
 
@@ -8,20 +9,10 @@
     right: $padding-base + $padding-base / 2;
     top: $padding-base;
   }
-  position: sticky;
-  top: 0;
 
-  &__reset {
-    background-color: $color-secondary;
-    border: none;
-    cursor: pointer;
-    font-size: $font-size-base;
-    min-width: $width-min-clickable;
-    padding: $padding-base;
-
-    &:hover {
-      border: $border-width solid $color-primary;
-    }
+  @include media($from: tbl-l) {
+    position: sticky;
+    top: 0;
   }
 
   &__title {

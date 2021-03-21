@@ -1,13 +1,25 @@
+@import "../../styles/breakpoints";
 @import "../../styles/colors";
+@import "../../styles/mixins";
 @import "../../styles/variables";
 
 .gallery {
   display: grid;
   grid-gap: $margin-base;
-  grid-template-columns: 25%;
-  grid-template-areas:
-    "title title"
-    "filters results";
+
+  @include media($to: tbl-l) {
+    grid-template-areas:
+      "title"
+      "filters"
+      "results";
+  }
+
+  @include media($from: tbl-l) {
+    grid-template-columns: 25%;
+    grid-template-areas:
+      "title title"
+      "filters results";
+  }
 
   &__card-container {
     display: flex;
@@ -16,16 +28,26 @@
   }
 
   &__filters {
-    border-right: $border-width solid $color-primary;
     grid-area: filters;
+
+    @include media($to: tbl-l) {
+      border-bottom: $border-width solid $color-primary;
+    }
+
+    @include media($from: tbl-l) {
+      border-right: $border-width solid $color-primary;
+    }
   }
 
   &__results {
-    align-items: center;
     display: flex;
-    flex-direction: column;
     grid-area: results;
     justify-content: center;
+
+    @include media($from: tbl-l) {
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   &__title {

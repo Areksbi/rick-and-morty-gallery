@@ -21,7 +21,7 @@ const Pagination = ({
     goToPage(page);
   };
   const filterInRangePage = (pageToCheck: number): boolean => {
-    const adjacentPageToShow = 3;
+    const adjacentPageToShow = 2;
     if (pageToCheck === firstPage || pageToCheck === pages) return true;
 
     if (currentPage === pageToCheck) return true;
@@ -60,31 +60,33 @@ const Pagination = ({
 
   return (
     <section className="pagination">
-      {pagesArr
-        .filter(filterInRangePage)
-        .reduce(addEmptyButton, [])
-        .map((page: number | string, i: number) =>
-          typeof page === 'string' ? (
-            <button
-              className={'pagination__button pagination__button--disabled'}
-              key={`page-${i}`}
-              disabled
-            >
-              {page}
-            </button>
-          ) : (
-            <button
-              className={
-                'pagination__button' +
-                (page === currentPage ? ' pagination__button--active' : '')
-              }
-              key={`page-${i}`}
-              onClick={() => handlePageClick(page)}
-            >
-              {page}
-            </button>
-          )
-        )}
+      <div className="pagination__container">
+        {pagesArr
+          .filter(filterInRangePage)
+          .reduce(addEmptyButton, [])
+          .map((page: number | string, i: number) =>
+            typeof page === 'string' ? (
+              <button
+                className={'pagination__button pagination__button--disabled'}
+                key={`page-${i}`}
+                disabled
+              >
+                {page}
+              </button>
+            ) : (
+              <button
+                className={
+                  'pagination__button' +
+                  (page === currentPage ? ' pagination__button--active' : '')
+                }
+                key={`page-${i}`}
+                onClick={() => handlePageClick(page)}
+              >
+                {page}
+              </button>
+            )
+          )}
+      </div>
     </section>
   );
 };
