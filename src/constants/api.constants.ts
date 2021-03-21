@@ -13,4 +13,6 @@ export const ApiRickAndMorty = {
   },
   EPISODES: (episodes: string[]): string =>
     `${ApiBase.RICK_AND_MORTY_API}/episode/${episodes}`,
+  LOCATION: (location: string): string =>
+    `${ApiBase.RICK_AND_MORTY_API}/location/${location}`,
 };

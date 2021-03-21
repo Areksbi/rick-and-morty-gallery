@@ -22,9 +22,9 @@
   },
   "gallery": {
     "character": {
+      "clickToOpen": "Click here to open:",
       "gender": "Gender",
       "episodes": "List of episodes",
-      "episodesHidden": "Click here to open:",
       "episodesWith": "Episodes with",
       "imageOf": "Image of",
       "location": "Last Location",
@@ -54,6 +54,17 @@
     },
     "title": {
       "value": "Rick and Morty"
+    }
+  },
+  "location": {
+    "dimension": {
+      "label": "Dimension"
+    },
+    "residents": {
+      "label": "Amount of residents"
+    },
+    "type": {
+      "label": "Type"
     }
   },
   "select": {

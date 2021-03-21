@@ -1,20 +1,15 @@
 @import "../../../styles/colors";
 @import "../../../styles/variables";
 
-.episodes {
+.table-location {
   width: 100%;
 
-  &__cell {
+  td {
     padding: $padding-base / 2;
-
-    &--left {
-      text-align: left;
-      text-transform: uppercase;
-    }
+    text-transform: capitalize;
   }
 
-  &__row {
-    &--border,
+  tr {
     &:not(:last-child) {
       border-bottom: $border-width solid $color-primary;
     }

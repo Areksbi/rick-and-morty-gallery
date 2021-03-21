@@ -41,18 +41,25 @@
     }
   }
 
-  &__episodes {
+  &__episodes,
+  &__location,
+  &__origin {
     &-button {
       border: none;
       background-color: inherit;
       cursor: pointer;
       font-size: inherit;
       padding: 0;
+      text-align: left;
       text-decoration: underline;
     }
 
     &-label {
-      @include visually-hidden;
+      text-transform: capitalize;
+
+      &--hidden {
+        @include visually-hidden;
+      }
     }
   }
 

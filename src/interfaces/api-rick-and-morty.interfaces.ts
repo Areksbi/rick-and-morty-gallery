@@ -19,7 +19,7 @@ interface IApiRickAndMortyInfo {
   prev?: string;
 }
 
-interface IApiRickAndMortyLocation {
+export interface IApiRickAndMortyLocation {
   name: string;
   url: string;
 }
@@ -53,4 +53,14 @@ export interface IApiRickAndMortyEpisode {
   id: number;
   name: string;
   url: string;
+}
+
+export interface IApiRickAndMortyLocationResponse {
+  id: number;
+  name: string;
+  type: string;
+  dimension: string;
+  residents: string[];
+  url: string;
+  created: Date;
 }

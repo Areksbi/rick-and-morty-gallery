@@ -19,3 +19,7 @@ export enum ApiRickAndMortyStatusEnum {
   DEAD = 'Dead',
   UNKNOWN = 'unknown',
 }
+
+export enum ApiRickAndMortyLocationEnums {
+  UNKNOWN = 'unknown',
+}

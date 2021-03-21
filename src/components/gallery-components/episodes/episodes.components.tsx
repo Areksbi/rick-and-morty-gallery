@@ -14,7 +14,7 @@ const Episodes = ({ episodes }: IEpisodes) => {
   return (
     <table className={'episodes'}>
       <thead>
-        <tr className={'episodes__row'}>
+        <tr className={'episodes__row episodes__row--border'}>
           <th className={'episodes__cell episodes__cell--left'}>
             {t('episodes.table.episode')}
           </th>
