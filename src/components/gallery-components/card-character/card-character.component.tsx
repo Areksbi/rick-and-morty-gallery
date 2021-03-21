@@ -4,13 +4,19 @@ import { useTranslation } from 'react-i18next';
 
 import './card-character.styles.scss';
 import { ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
-import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
+import {
+  IApiRickAndMortyCharactersResult,
+  IApiRickAndMortyEpisode,
+} from '../../../interfaces/api-rick-and-morty.interfaces';
 import { showModal } from '../../../store/modal/modal.actions';
 import { TranslationsEnums } from '../../../enums/translations.enums';
+import { ApiRickAndMorty } from '../../../constants/api.constants';
+import Episodes from '../episodes/episodes.components';
 
 const mapDispatchToProps = { dispatchShowModal: showModal };
 const connector = connect(undefined, mapDispatchToProps);
-type CardProps = IApiRickAndMortyResult & ConnectedProps<typeof connector>;
+type CardProps = IApiRickAndMortyCharactersResult &
+  ConnectedProps<typeof connector>;
 
 const Card = ({
   name,
@@ -21,9 +27,23 @@ const Card = ({
   species,
   status,
   type,
+  episode,
   dispatchShowModal,
 }: CardProps): JSX.Element => {
   const { t } = useTranslation(TranslationsEnums.COMMON);
+  const onEpisodesClick = async () => {
+    // @ts-ignore
+    const listEpisodes: string[] = episode
+      .map((ep: string) => ep.split('/').pop())
+      .filter((ep: string | undefined) => typeof ep === 'string');
+    const res = await fetch(ApiRickAndMorty.EPISODES(listEpisodes));
+    const json: IApiRickAndMortyEpisode[] = await res.json();
+    dispatchShowModal({
+      title: `${t('gallery.character.episodesWith')} ${name}`,
+      content: <Episodes episodes={json} />,
+    });
+  };
+
   return (
     <article className="card">
       <header>
@@ -75,12 +95,7 @@ const Card = ({
             <td className={'card__episodes'} colSpan={2}>
               <button
                 className={'card__episodes-button'}
-                onClick={() => {
-                  dispatchShowModal({
-                    title: `${t('gallery.character.episodesWith')} ${name}`,
-                    content: <div>Hello</div>,
-                  });
-                }}
+                onClick={onEpisodesClick}
               >
                 <span className={'card__episodes-label'}>
                   IModalProps {t('gallery.character.episodesHidden')}

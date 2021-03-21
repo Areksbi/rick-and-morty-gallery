@@ -4,6 +4,13 @@
       "label": "Skip to gallery"
     }
   },
+  "episodes": {
+    "table": {
+      "episode": "Episode",
+      "name": "Name",
+      "airDate": "Air Date"
+    }
+  },
   "footer": {
     "copyright": {
       "label": "Roman Baran ©"

@@ -1,0 +1,19 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.episodes {
+  width: 100%;
+
+  &__cell {
+    padding: $padding-base / 2;
+
+    &--left {
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
+
+  &__row {
+    border-bottom: $border-width solid $color-primary;
+  }
+}

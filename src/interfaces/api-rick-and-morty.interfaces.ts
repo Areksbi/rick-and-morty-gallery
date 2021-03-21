@@ -24,7 +24,7 @@ interface IApiRickAndMortyLocation {
   url: string;
 }
 
-export interface IApiRickAndMortyResult {
+export interface IApiRickAndMortyCharactersResult {
   created: Date;
   episode: string[];
   gender: ApiRickAndMortyGenderEnum;
@@ -39,8 +39,18 @@ export interface IApiRickAndMortyResult {
   url: string;
 }
 
-export interface IApiRickAndMorty {
+export interface IApiRickAndMortyCharacters {
   error?: string;
   info?: IApiRickAndMortyInfo;
-  results?: IApiRickAndMortyResult[];
+  results?: IApiRickAndMortyCharactersResult[];
+}
+
+export interface IApiRickAndMortyEpisode {
+  air_date: string;
+  characters: string[];
+  created: Date;
+  episode: string;
+  id: number;
+  name: string;
+  url: string;
 }

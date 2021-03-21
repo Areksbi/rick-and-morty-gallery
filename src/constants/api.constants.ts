@@ -7,10 +7,10 @@ const ApiBase = {
 
 export const ApiRickAndMorty = {
   CHARACTER: (request: IApiRickAndMortyCharacter): string => {
-    // eslint-disable
     // @ts-ignore
     const queryParams = new URLSearchParams(request).toString();
-    // eslint-enable
     return `${ApiBase.RICK_AND_MORTY_API}/character?${queryParams}`;
   },
+  EPISODES: (episodes: string[]): string =>
+    `${ApiBase.RICK_AND_MORTY_API}/episode/${episodes}`,
 };

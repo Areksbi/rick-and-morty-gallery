@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import './gallery.styles.scss';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
-  IApiRickAndMorty,
-  IApiRickAndMortyResult,
+  IApiRickAndMortyCharacters,
+  IApiRickAndMortyCharactersResult,
 } from '../../interfaces/api-rick-and-morty.interfaces';
 import { QueryParamsConst } from '../../constants/query-params.constants';
 import { TranslationsEnums } from '../../enums/translations.enums';
@@ -28,7 +28,7 @@ const GalleryPage = (): JSX.Element => {
 
   const shouldShowDoublePagination = useMediaQuery('(min-width: 1024px)');
   const [page, setPage] = useState(parseInt(pageParam || '1', 10));
-  const res = useFetch<IApiRickAndMorty>(
+  const res = useFetch<IApiRickAndMortyCharacters>(
     ApiRickAndMorty.CHARACTER({
       page: page.toString(),
       name,
@@ -82,9 +82,11 @@ const GalleryPage = (): JSX.Element => {
           ) : null}
           <div className="gallery__card-container">
             {res.response?.results ? (
-              res.response?.results.map((character: IApiRickAndMortyResult) => (
-                <Card key={character.id} {...character} />
-              ))
+              res.response?.results.map(
+                (character: IApiRickAndMortyCharactersResult) => (
+                  <Card key={character.id} {...character} />
+                )
+              )
             ) : (
               <p>There are no results that match your search</p>
             )}
