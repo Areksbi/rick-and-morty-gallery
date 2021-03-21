@@ -18,11 +18,11 @@ const Select = ({ handleChange, label, options, ...otherProps }: ISelectProps) =
           </option>
         ))}
       </select>
-      {label ? (
+      {label && (
         <label htmlFor={otherProps.id} className={`${otherProps.value?.length ? 'select__label--shrink' : ''} select__label`}>
           {label}
         </label>
-      ) : null}
+      )}
     </div>
   );
 };

@@ -22,9 +22,6 @@ const App = (): JSX.Element => {
       <main>
         <div className="main-container">
           <Switch>
-            <Route exact path={UrlsConst.ROOT}>
-              <Redirect to={UrlsConst.GALLERY} />
-            </Route>
             <Route exact path={UrlsConst.GALLERY} component={GalleryPage} />
             <Route>
               <Redirect to={UrlsConst.GALLERY} />

@@ -55,7 +55,7 @@ export interface IApiRickAndMortyLocationResponse {
   created: Date;
 }
 
-interface IApiRickAndMortyInfo {
+export interface IApiRickAndMortyInfo {
   count: number;
   pages: number;
   next?: string;

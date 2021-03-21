@@ -75,9 +75,9 @@ const Card = ({ name, image, gender, location, origin, species, status, type, ep
             <td className="card__status">
               {status === ApiRickAndMortyStatusEnum.ALIVE ? (
                 <span className="card__status-icon card__status-icon--alive"></span>
-              ) : status === ApiRickAndMortyStatusEnum.DEAD ? (
-                <span className="card__status-icon card__status-icon--dead"></span>
-              ) : null}
+              ) : (
+                status === ApiRickAndMortyStatusEnum.DEAD && <span className="card__status-icon card__status-icon--dead"></span>
+              )}
               {status}
             </td>
           </tr>
