@@ -13,7 +13,7 @@ import {
 import { showModal } from '../../../store/modal/modal.actions';
 import { TranslationsEnums } from '../../../enums/translations.enums';
 import { ApiRickAndMorty } from '../../../constants/api.constants';
-import Episodes from '../episodes/episodes.components';
+import TableEpisodes from '../table-episodes/table-episodes.components';
 import TableLocation from '../table-location/table-location.component';
 
 const mapDispatchToProps = { dispatchShowModal: showModal };
@@ -31,7 +31,7 @@ const Card = ({ name, image, gender, location, origin, species, status, type, ep
     const json: IApiRickAndMortyEpisode[] = await res.json();
     dispatchShowModal({
       title: `${t('gallery.character.episodesWith')} ${name}`,
-      content: <Episodes episodes={json} />,
+      content: <TableEpisodes episodes={json} />,
     });
   };
   const onLocationClick = async (locationToSearch: IApiRickAndMortyLocation) => {

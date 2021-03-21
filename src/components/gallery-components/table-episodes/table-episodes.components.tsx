@@ -1,14 +1,12 @@
-import './episodes.styles.scss';
-import { IApiRickAndMortyEpisode } from '../../../interfaces/api-rick-and-morty.interfaces';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+
+import './table-episodes.styles.scss';
+import { IApiRickAndMortyEpisode } from '../../../interfaces/api-rick-and-morty.interfaces';
+import { ITableEpisodesProps } from './table-episodes.interfaces';
 import { TranslationsEnums } from '../../../enums/translations.enums';
 
-interface IEpisodes {
-  episodes: IApiRickAndMortyEpisode | IApiRickAndMortyEpisode[];
-}
-
-const Episodes = ({ episodes }: IEpisodes) => {
+const TableEpisodes = ({ episodes }: ITableEpisodesProps) => {
   const [t] = useTranslation(TranslationsEnums.COMMON);
 
   return (
@@ -35,4 +33,4 @@ const Episodes = ({ episodes }: IEpisodes) => {
   );
 };
 
-export default Episodes;
+export default TableEpisodes;
