@@ -5,27 +5,39 @@
   background-color: $white;
   border: $border-width solid $color-primary;
   border-radius: 2px;
-  padding: $padding-base;
+  margin: auto;
+  max-width: $width-max-text;
+  padding: $padding-base * 1.5;
   position: relative;
 
-  &-close {
+  &__close {
+    border: none;
+    background-color: inherit;
     cursor: pointer;
     font-size: $font-size-subtitle;
-    position: absolute;
-    right: $margin-base / 2;
-    top: $margin-base / 2;
+    margin-left: $margin-base;
   }
 
-  &-overlay {
-    align-items: center;
+  &__content {
+    margin-top: $margin-base;
+  }
+
+  &__overlay {
     background-color: rgba(0, 0, 0, 0.7);
     bottom: 0;
     display: flex;
-    justify-content: center;
     left: 0;
     position: fixed;
+    overflow: auto;
     right: 0;
     top: 0;
     z-index: $z-index-modal;
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: $font-size-subtitle;
+    justify-content: space-between;
   }
 }
