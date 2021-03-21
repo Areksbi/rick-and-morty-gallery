@@ -1,0 +1,75 @@
+{
+  "core": {
+    "skipToMain": {
+      "label": "Skip to gallery"
+    }
+  },
+  "episodes": {
+    "table": {
+      "episode": "Episode",
+      "name": "Name",
+      "airDate": "Air Date"
+    }
+  },
+  "footer": {
+    "copyright": {
+      "label": "Roman Baran ©"
+    },
+    "linkedin": {
+      "icon": "LinkedIn icon",
+      "label": "Go to my LinkedIn profile!"
+    }
+  },
+  "gallery": {
+    "character": {
+      "clickToOpen": "Click here to open:",
+      "gender": "Gender",
+      "episodes": "List of episodes",
+      "episodesWith": "Episodes with",
+      "imageOf": "Image of",
+      "location": "Last Location",
+      "origin": "Origin",
+      "species": "Species",
+      "status": "Status",
+      "type": "Type"
+    },
+    "filters": {
+      "gender": "Gender",
+      "name": "Name",
+      "species": "Species",
+      "status": "Status",
+      "title": "Filters",
+      "type": "Type"
+    },
+    "loading": {
+      "value": "Loading..."
+    },
+    "title": {
+      "value": "Character Gallery"
+    }
+  },
+  "header": {
+    "logo": {
+      "caption": "Rick and Morty logo"
+    },
+    "title": {
+      "value": "Rick and Morty"
+    }
+  },
+  "location": {
+    "dimension": {
+      "label": "Dimension"
+    },
+    "residents": {
+      "label": "Amount of residents"
+    },
+    "type": {
+      "label": "Type"
+    }
+  },
+  "select": {
+    "option": {
+      "all": "-"
+    }
+  }
+}

@@ -1,0 +1,59 @@
+@import "../../styles/breakpoints";
+@import "../../styles/colors";
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.gallery {
+  display: grid;
+  grid-gap: $margin-base;
+
+  @include media($to: tbl-l) {
+    grid-template-areas:
+      "title"
+      "filters"
+      "results";
+  }
+
+  @include media($from: tbl-l) {
+    grid-template-columns: 25%;
+    grid-template-areas:
+      "title title"
+      "filters results";
+  }
+
+  &__card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  &__filters {
+    grid-area: filters;
+
+    @include media($to: tbl-l) {
+      border-bottom: $border-width solid $color-primary;
+    }
+
+    @include media($from: tbl-l) {
+      border-right: $border-width solid $color-primary;
+    }
+  }
+
+  &__results {
+    display: flex;
+    grid-area: results;
+    justify-content: center;
+
+    @include media($from: tbl-l) {
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-title;
+    grid-area: title;
+    margin: $margin-base 0;
+    text-transform: uppercase;
+  }
+}

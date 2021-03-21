@@ -1,0 +1,43 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.modal {
+  background-color: $white;
+  border: $border-width solid $color-primary;
+  border-radius: 2px;
+  margin: auto;
+  max-width: $width-max-text;
+  padding: $padding-base * 1.5;
+  position: relative;
+
+  &__close {
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    font-size: $font-size-subtitle;
+    margin-left: $margin-base;
+  }
+
+  &__content {
+    margin-top: $margin-base;
+  }
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    bottom: 0;
+    display: flex;
+    left: 0;
+    position: fixed;
+    overflow: auto;
+    right: 0;
+    top: 0;
+    z-index: $z-index-modal;
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: $font-size-subtitle;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,40 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.input {
+  $root: &;
+
+  margin: calc(#{$margin-base} + #{$font-size-base * 2}) 0;
+  position: relative;
+
+  &__field {
+    border: {
+      bottom: $border-width solid $color-primary;
+      left: none;
+      right: none;
+      top: none;
+    }
+    display: block;
+    font-size: $font-size-base;
+    padding: $padding-base;
+    width: 100%;
+
+    &:focus ~ #{$root}__label {
+      @include shrink-label;
+    }
+  }
+
+  &__label {
+    font-size: $font-size-base;
+    left: $margin-base;
+    pointer-events: none;
+    position: absolute;
+    top: $margin-base;
+    transition: $transition-speed ease all;
+
+    &--shrink {
+      @include shrink-label;
+    }
+  }
+}

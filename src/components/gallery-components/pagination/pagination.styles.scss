@@ -1,0 +1,40 @@
+@import "../../../styles/breakpoints";
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.pagination {
+  $transition-effect: linear;
+
+  text-align: center;
+
+  @include media($from: tbl-p) {
+    margin: $margin-base;
+  }
+
+  &__button {
+    border: none;
+    border-radius: 50%;
+    background-color: transparent;
+    font-size: $font-size-base;
+    margin: $margin-base / 2;
+    min-width: $width-min-clickable;
+    padding: $padding-base;
+    transition: background-color $transition-speed $transition-effect;
+
+    &:hover:not(&--disabled),
+    &--active:not(&--disabled) {
+      background-color: $color-secondary;
+    }
+
+    &:not(&--active):not(&--disabled) {
+      cursor: pointer;
+    }
+  }
+
+  @include media($to: tbl-l) {
+    &__container {
+      position: sticky;
+      top: 0;
+    }
+  }
+}

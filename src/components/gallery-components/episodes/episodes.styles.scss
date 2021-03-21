@@ -1,0 +1,22 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.episodes {
+  width: 100%;
+
+  &__cell {
+    padding: $padding-base / 2;
+
+    &--left {
+      text-align: left;
+      text-transform: uppercase;
+    }
+  }
+
+  &__row {
+    &--border,
+    &:not(:last-child) {
+      border-bottom: $border-width solid $color-primary;
+    }
+  }
+}

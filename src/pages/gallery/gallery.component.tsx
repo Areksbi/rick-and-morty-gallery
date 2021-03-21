@@ -1,0 +1,110 @@
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import './gallery.styles.scss';
+import { ApiRickAndMorty } from '../../constants/api.constants';
+import {
+  IApiRickAndMortyCharacters,
+  IApiRickAndMortyCharactersResult,
+} from '../../interfaces/api-rick-and-morty.interfaces';
+import { QueryParamsConst } from '../../constants/query-params.constants';
+import { TranslationsEnums } from '../../enums/translations.enums';
+import Card from '../../components/gallery-components/card-character/card-character.component';
+import Filters from '../../components/gallery-components/filters/filters.component';
+import Pagination from '../../components/gallery-components/pagination/pagination.component';
+import useFetch from '../../effects/use-fetch.effect';
+import useMediaQuery from '../../effects/use-media-query.effect';
+import useQueryParams from '../../effects/use-query-params.effect';
+
+const GalleryPage = (): JSX.Element => {
+  const { t } = useTranslation(TranslationsEnums.COMMON);
+
+  const [pageParam, setPageParam] = useQueryParams(QueryParamsConst.PAGE, '');
+  const [name, setName] = useQueryParams(QueryParamsConst.NAME, '');
+  const [species, setSpecies] = useQueryParams(QueryParamsConst.SPECIES, '');
+  const [type, setType] = useQueryParams(QueryParamsConst.TYPE, '');
+  const [status, setStatus] = useQueryParams(QueryParamsConst.STATUS, '');
+  const [gender, setGender] = useQueryParams(QueryParamsConst.GENDER, '');
+
+  const shouldShowDoublePagination = useMediaQuery('(min-width: 1024px)');
+  const [page, setPage] = useState(parseInt(pageParam || '1', 10));
+  const res = useFetch<IApiRickAndMortyCharacters>(
+    ApiRickAndMorty.CHARACTER({
+      page: page.toString(),
+      name,
+      species,
+      type,
+      status,
+      gender,
+    })
+  );
+
+  const goToPage = (selectedPage: number) => {
+    setPage(selectedPage);
+    setPageParam(selectedPage.toString());
+    window.scrollTo(0, 0);
+  };
+  const onFiltersChange = (
+    setState: (value: string) => void,
+    value: string
+  ): void => {
+    goToPage(1);
+    setState(value);
+  };
+
+  return (
+    <div className="gallery">
+      <h2 className="gallery__title">{t('gallery.title.value')}</h2>
+      <section className={'gallery__filters'}>
+        <Filters
+          name={name}
+          species={species}
+          type={type}
+          status={status}
+          gender={gender}
+          setName={(value: string) => onFiltersChange(setName, value)}
+          setSpecies={(value: string) => onFiltersChange(setSpecies, value)}
+          setType={(value: string) => onFiltersChange(setType, value)}
+          setStatus={(value: string) => onFiltersChange(setStatus, value)}
+          setGender={(value: string) => onFiltersChange(setGender, value)}
+        />
+      </section>
+      {res?.response || !res.response?.error ? (
+        <section className={'gallery__results'} id={'gallery-results'}>
+          {shouldShowDoublePagination &&
+          (res.response?.info?.next || res.response?.info?.prev) ? (
+            <Pagination
+              goToPage={goToPage}
+              perPage={20}
+              pages={res.response.info.pages}
+              currentPage={page}
+            />
+          ) : null}
+          <div className="gallery__card-container">
+            {res.response?.results ? (
+              res.response?.results.map(
+                (character: IApiRickAndMortyCharactersResult) => (
+                  <Card key={character.id} {...character} />
+                )
+              )
+            ) : (
+              <p>There are no results that match your search</p>
+            )}
+          </div>
+          {res.response?.info?.next || res.response?.info?.prev ? (
+            <Pagination
+              goToPage={goToPage}
+              perPage={20}
+              pages={res.response.info.pages}
+              currentPage={page}
+            />
+          ) : null}
+        </section>
+      ) : (
+        <div>{t('gallery.loading.value')}</div>
+      )}
+    </div>
+  );
+};
+
+export default GalleryPage;

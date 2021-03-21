@@ -1,0 +1,17 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.table-location {
+  width: 100%;
+
+  td {
+    padding: $padding-base / 2;
+    text-transform: capitalize;
+  }
+
+  tr {
+    &:not(:last-child) {
+      border-bottom: $border-width solid $color-primary;
+    }
+  }
+}

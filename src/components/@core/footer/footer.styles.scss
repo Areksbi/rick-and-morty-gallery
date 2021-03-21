@@ -1,0 +1,37 @@
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.footer {
+  @include box-shadow($v-offset: -8px);
+
+  &__container {
+    @include max-width;
+
+    align-items: center;
+    color: white;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: $padding-base;
+    width: 100%;
+  }
+
+  &__copyright {
+    font-size: $font-size-small;
+  }
+
+  &__icons {
+    svg {
+      height: 38px;
+      width: 38px;
+    }
+  }
+
+  &__icon {
+    padding: 5px;
+
+    &-caption--hidden {
+      @include visually-hidden;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.header {
+  $height-header: 100px;
+  $padding-header: $padding-base;
+
+  @include box-shadow;
+
+  height: $height-header;
+  padding: $padding-header;
+  text-align: center;
+  width: 100%;
+  z-index: $z-index-header;
+
+  &__figure {
+    display: inline-block;
+  }
+
+  &__figcaption {
+    @include visually-hidden;
+  }
+
+  &__logo {
+    height: calc(#{$height-header} - #{$padding-header * 2});
+    stroke: $color-secondary;
+    stroke-opacity: 0.8;
+    stroke-width: 2px;
+  }
+
+  &__title {
+    @include visually-hidden;
+  }
+}

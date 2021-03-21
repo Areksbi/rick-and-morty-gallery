@@ -1,0 +1,112 @@
+@import "../../../styles/breakpoints";
+@import "../../../styles/colors";
+@import "../../../styles/mixins";
+@import "../../../styles/variables";
+
+.card {
+  $width-image-small: 225px;
+  $width-image: 280px;
+  $width-image-real: 300px;
+
+  @include media($to: tbl-l) {
+    --width-image: #{$width-image-small};
+  }
+  @include media($from: tbl-l) {
+    --width-image: #{$width-image};
+  }
+  @include box-shadow($v-offset: 0, $spread-radius: 0);
+
+  border-radius: 8px;
+  margin: $margin-base $margin-base / 2;
+  max-width: calc(
+    var(--width-image) + #{$padding-base * 2 + $border-width * 2}
+  );
+  padding: $padding-base;
+
+  tr {
+    &:not(:last-child) {
+      border-bottom: $border-width solid $color-primary;
+    }
+
+    td {
+      padding: $padding-base / 2;
+
+      &:first-letter {
+        text-transform: capitalize;
+      }
+
+      &:last-child {
+        width: 100%;
+      }
+    }
+  }
+
+  &__episodes,
+  &__location,
+  &__origin {
+    &-button {
+      border: none;
+      background-color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      padding: 0;
+      text-align: left;
+      text-decoration: underline;
+    }
+
+    &-label {
+      text-transform: capitalize;
+
+      &--hidden {
+        @include visually-hidden;
+      }
+    }
+  }
+
+  &__image {
+    display: inherit;
+    transform: translateZ(0);
+    transition: transform $transition-speed ease-out;
+    width: var(--width-image);
+
+    @include media($from: tbl-l) {
+      &:hover {
+        transform: scale(#{$width-image-real / $width-image});
+      }
+    }
+  }
+
+  &__image-container {
+    border: $border-width solid $color-primary;
+    margin-bottom: $margin-base;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-size: $font-size-subtitle;
+    margin-bottom: $margin-base;
+    text-align: center;
+  }
+
+  &__status {
+    align-items: center;
+    display: flex;
+    text-transform: capitalize;
+
+    &-icon {
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: $margin-base / 2;
+      height: 0.5rem;
+      width: 0.5rem;
+
+      &--alive {
+        background: $color-success;
+      }
+
+      &--dead {
+        background: $color-error;
+      }
+    }
+  }
+}

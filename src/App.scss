@@ -1,0 +1,29 @@
+@import "styles/colors";
+@import "styles/mixins";
+@import "styles/variables";
+
+main {
+  background-color: $color-background-primary;
+  flex: 1;
+}
+
+.main-container {
+  @include max-width;
+  padding: $padding-base;
+}
+
+.skip-to-main {
+  @include visually-hidden;
+
+  &:focus,
+  &:active {
+    background-color: $color-secondary;
+    border: $border-width solid $color-primary;
+    color: inherit;
+    left: $margin-base / 2;
+    padding: $padding-base;
+    position: absolute;
+    text-decoration: none;
+    top: $margin-base / 2;
+  }
+}
