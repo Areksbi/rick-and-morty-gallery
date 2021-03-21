@@ -1,7 +1,4 @@
-import {
-  ApiRickAndMortyGenderEnum,
-  ApiRickAndMortyStatusEnum,
-} from '../enums/api-rick-and-morty.enums';
+import { ApiRickAndMortyGenderEnum, ApiRickAndMortyStatusEnum } from '../enums/api-rick-and-morty.enums';
 
 export interface IApiRickAndMortyCharacter {
   page?: string;
@@ -10,13 +7,6 @@ export interface IApiRickAndMortyCharacter {
   type?: string;
   status?: ApiRickAndMortyStatusEnum | string;
   gender?: ApiRickAndMortyGenderEnum | string;
-}
-
-interface IApiRickAndMortyInfo {
-  count: number;
-  pages: number;
-  next?: string;
-  prev?: string;
 }
 
 export interface IApiRickAndMortyLocation {
@@ -63,4 +53,11 @@ export interface IApiRickAndMortyLocationResponse {
   residents: string[];
   url: string;
   created: Date;
+}
+
+interface IApiRickAndMortyInfo {
+  count: number;
+  pages: number;
+  next?: string;
+  prev?: string;
 }
