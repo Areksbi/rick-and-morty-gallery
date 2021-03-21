@@ -1,14 +1,12 @@
 import './filters.styles.scss';
 import { ChangeEvent } from 'react';
-import {
-  ApiRickAndMortyGenderEnum,
-  ApiRickAndMortyStatusEnum,
-} from '../../../enums/api-rick-and-morty.enums';
+import { ApiRickAndMortyGenderEnum, ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
 import Input from '../../@shared/input/input.component';
-import Select, { ISelectOption } from '../../@shared/select/select.component';
+import Select from '../../@shared/select/select.component';
 import Button from '../../@shared/button/button.component';
 import { useTranslation } from 'react-i18next';
 import { TranslationsEnums } from '../../../enums/translations.enums';
+import { ISelectOption } from '../../@shared/select/select.interfaces';
 
 export interface IFilters {
   name: string;
@@ -23,18 +21,7 @@ export interface IFilters {
   setGender: (name: string) => void;
 }
 
-const Filters = ({
-  name,
-  species,
-  type,
-  status,
-  gender,
-  setName,
-  setSpecies,
-  setType,
-  setStatus,
-  setGender,
-}: IFilters) => {
+const Filters = ({ name, species, type, status, gender, setName, setSpecies, setType, setStatus, setGender }: IFilters) => {
   const { t } = useTranslation(TranslationsEnums.COMMON);
   const statusOptions: ISelectOption[] = [
     {
@@ -83,9 +70,7 @@ const Filters = ({
         type="text"
         id={'filters__name'}
         value={name}
-        handleChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setName(e.target.value)
-        }
+        handleChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
         label={t('gallery.filters.name')}
       />
       <Input
@@ -93,9 +78,7 @@ const Filters = ({
         type="text"
         id={'filters__species'}
         value={species}
-        handleChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setSpecies(e.target.value)
-        }
+        handleChange={(e: ChangeEvent<HTMLInputElement>) => setSpecies(e.target.value)}
         label={t('gallery.filters.species')}
       />
       <Input
@@ -103,9 +86,7 @@ const Filters = ({
         type="text"
         id={'filters__type'}
         value={type}
-        handleChange={(e: ChangeEvent<HTMLInputElement>) =>
-          setType(e.target.value)
-        }
+        handleChange={(e: ChangeEvent<HTMLInputElement>) => setType(e.target.value)}
         label={t('gallery.filters.type')}
       />
 
@@ -113,9 +94,7 @@ const Filters = ({
         name="status"
         id={'filters__status'}
         value={status}
-        handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
-          setStatus(e.target.value)
-        }
+        handleChange={(e: ChangeEvent<HTMLSelectElement>) => setStatus(e.target.value)}
         label={t('gallery.filters.status')}
         options={statusOptions}
       />
@@ -124,17 +103,11 @@ const Filters = ({
         name="gender"
         id={'filters__gender'}
         value={gender}
-        handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
-          setGender(e.target.value)
-        }
+        handleChange={(e: ChangeEvent<HTMLSelectElement>) => setGender(e.target.value)}
         label={t('gallery.filters.gender')}
         options={genderOptions}
       />
-      <Button
-        className={'filters__reset'}
-        onClick={resetAllFilters}
-        label={'Reset all filters'}
-      />
+      <Button className={'filters__reset'} onClick={resetAllFilters} label={'Reset all filters'} />
     </div>
   );
 };

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import './header.styles.scss';
 import { ReactComponent as Logo } from '../../../assets/images/logo.svg';
+import { TranslationsEnums } from '../../../enums/translations.enums';
 import { UrlsConst } from '../../../constants/urls.constants';
 import { useTranslation } from 'react-i18next';
-import { TranslationsEnums } from '../../../enums/translations.enums';
 
 const Header = (): JSX.Element => {
   const { t } = useTranslation(TranslationsEnums.COMMON);

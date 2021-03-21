@@ -4,7 +4,7 @@
 .select {
   $root: &;
 
-  background-color: $color-background-secondary;
+  background-color: $color-background-tertiary;
   border-bottom: $border-width solid $color-primary;
   margin: calc(#{$margin-base} + #{$font-size-base * 2}) 0;
   padding-right: $padding-base;
@@ -25,7 +25,7 @@
     pointer-events: none;
     position: absolute;
     top: $margin-base;
-    transition: $transition-speed ease all;
+    transition: $transition-speed $transition-effect all;
 
     @include shrink-label;
   }

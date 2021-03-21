@@ -2,7 +2,7 @@
 @import 'styles/variables';
 
 main {
-  background-color: $color-background-secondary;
+  background-color: $color-background-tertiary;
   flex: 1;
 }
 
@@ -16,7 +16,7 @@ main {
 
   &:focus,
   &:active {
-    background-color: $color-secondary;
+    background-color: $color-background-secondary;
     border: $border-width solid $color-primary;
     color: inherit;
     left: $margin-base / 2;

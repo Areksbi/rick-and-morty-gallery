@@ -1,9 +1,7 @@
 @import '../../../styles/variables';
 
 .button {
-  $transition-effect: linear;
-
-  background-color: $color-secondary;
+  background-color: $color-background-secondary;
   border: $border-width solid $color-primary;
   cursor: pointer;
   font-size: $font-size-base;
@@ -14,7 +12,7 @@
     color $transition-speed $transition-effect;
 
   &:hover {
-    background-color: $color-primary;
+    background-color: $color-background-primary;
     border: $border-width solid $color-secondary;
     color: $color-tertiary;
   }

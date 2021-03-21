@@ -5,9 +5,7 @@ import { hideModal } from '../../../store/modal/modal.actions';
 import { RootState } from '../../../store/reducers';
 
 const mapStateToProps = (state: RootState) => ({ modal: state.modal.modal });
-const mapDispatchToProps = {
-  dispatchHideModal: hideModal,
-};
+const mapDispatchToProps = { dispatchHideModal: hideModal };
 const connector = connect(mapStateToProps, mapDispatchToProps);
 type ModalProps = ConnectedProps<typeof connector>;
 

@@ -1,12 +1,7 @@
 import './button.styles.scss';
+import { IButtonProps } from './button.interfaces';
 
-export interface IButton {
-  className: string;
-  label: string;
-  onClick: () => void;
-}
-
-const Button = ({ className, label, onClick }: IButton) => (
+const Button = ({ className, label, onClick }: IButtonProps) => (
   <button className={'button ' + className} onClick={onClick}>
     {label}
   </button>

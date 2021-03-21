@@ -1,6 +1,8 @@
+$border-radius: 8px;
 $border-width: 1px;
 $margin-base: 16px;
 $padding-base: 16px;
+$transition-effect: ease;
 $transition-speed: 250ms;
 $width-max-text: 60ch;
 $width-max-page: 1440px;
@@ -29,7 +31,8 @@ $color-secondary: $yellow;
 $color-tertiary: $white;
 
 $color-background-primary: $color-primary;
-$color-background-secondary: $color-tertiary;
+$color-background-secondary: $color-secondary;
+$color-background-tertiary: $color-tertiary;
 
 $color-box-shadow: $black-opacity-half;
 

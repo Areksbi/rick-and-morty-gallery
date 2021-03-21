@@ -2,8 +2,8 @@ import React from 'react';
 
 import './footer.styles.scss';
 import { ReactComponent as LinkedIn } from '../../../assets/images/linkedin.svg';
-import { useTranslation } from 'react-i18next';
 import { TranslationsEnums } from '../../../enums/translations.enums';
+import { useTranslation } from 'react-i18next';
 
 const Footer = (): JSX.Element => {
   const { t } = useTranslation(TranslationsEnums.COMMON);

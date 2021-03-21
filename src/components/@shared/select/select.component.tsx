@@ -1,24 +1,11 @@
 import './select.styles.scss';
-import { ChangeEvent } from 'react';
-import { useTranslation } from 'react-i18next';
+import { ISelectOption, ISelectProps } from './select.interfaces';
 import { TranslationsEnums } from '../../../enums/translations.enums';
+import { useTranslation } from 'react-i18next';
 
-interface ISelect {
-  handleChange: (e: ChangeEvent<HTMLSelectElement>) => void;
-  id: string;
-  label: string;
-  options: ISelectOption[];
-  name?: string;
-  value?: string;
-}
-
-export interface ISelectOption {
-  label: string;
-  value: string;
-}
-
-const Select = ({ handleChange, label, options, ...otherProps }: ISelect) => {
+const Select = ({ handleChange, label, options, ...otherProps }: ISelectProps) => {
   const { t } = useTranslation(TranslationsEnums.COMMON);
+
   return (
     <div className="select">
       <select className="select__field" onChange={handleChange} {...otherProps}>
@@ -26,22 +13,13 @@ const Select = ({ handleChange, label, options, ...otherProps }: ISelect) => {
           {t('select.option.all')}
         </option>
         {options.map((option: ISelectOption, i: number) => (
-          <option
-            key={`${otherProps.id}-${i}`}
-            className="select__option"
-            value={option.value}
-          >
+          <option key={`${otherProps.id}-${i}`} className="select__option" value={option.value}>
             {option.label}
           </option>
         ))}
       </select>
       {label ? (
-        <label
-          htmlFor={otherProps.id}
-          className={`${
-            otherProps.value?.length ? 'select__label--shrink' : ''
-          } select__label`}
-        >
+        <label htmlFor={otherProps.id} className={`${otherProps.value?.length ? 'select__label--shrink' : ''} select__label`}>
           {label}
         </label>
       ) : null}

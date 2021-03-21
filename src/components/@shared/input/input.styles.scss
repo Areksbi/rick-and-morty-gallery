@@ -30,7 +30,7 @@
     pointer-events: none;
     position: absolute;
     top: $margin-base;
-    transition: $transition-speed ease all;
+    transition: $transition-speed $transition-effect all;
 
     &--shrink {
       @include shrink-label;

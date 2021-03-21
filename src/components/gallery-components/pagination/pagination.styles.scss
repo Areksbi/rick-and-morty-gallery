@@ -22,7 +22,7 @@
 
     &:hover:not(&--disabled),
     &--active:not(&--disabled) {
-      background-color: $color-secondary;
+      background-color: $color-background-secondary;
     }
 
     &:not(&--active):not(&--disabled) {
