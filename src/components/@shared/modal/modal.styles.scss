@@ -1,8 +1,7 @@
-@import "../../../styles/colors";
-@import "../../../styles/variables";
+@import '../../../styles/variables';
 
 .modal {
-  background-color: $white;
+  background-color: $color-background-secondary;
   border: $border-width solid $color-primary;
   border-radius: 2px;
   margin: auto;

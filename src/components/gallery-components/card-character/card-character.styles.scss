@@ -1,7 +1,5 @@
-@import "../../../styles/breakpoints";
-@import "../../../styles/colors";
-@import "../../../styles/mixins";
-@import "../../../styles/variables";
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .card {
   $width-image-small: 225px;
@@ -18,9 +16,7 @@
 
   border-radius: 8px;
   margin: $margin-base $margin-base / 2;
-  max-width: calc(
-    var(--width-image) + #{$padding-base * 2 + $border-width * 2}
-  );
+  max-width: calc(var(--width-image) + #{$padding-base * 2 + $border-width * 2});
   padding: $padding-base;
 
   tr {
@@ -101,11 +97,11 @@
       width: 0.5rem;
 
       &--alive {
-        background: $color-success;
+        background-color: $color-success;
       }
 
       &--dead {
-        background: $color-error;
+        background-color: $color-error;
       }
     }
   }

@@ -1,11 +1,10 @@
-@import '../../../styles/colors';
 @import '../../../styles/mixins';
 @import '../../../styles/variables';
 
 .select {
   $root: &;
 
-  background-color: $white;
+  background-color: $color-background-secondary;
   border-bottom: $border-width solid $color-primary;
   margin: calc(#{$margin-base} + #{$font-size-base * 2}) 0;
   padding-right: $padding-base;

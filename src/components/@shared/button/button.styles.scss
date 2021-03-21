@@ -1,5 +1,4 @@
-@import "../../../styles/colors";
-@import "../../../styles/variables";
+@import '../../../styles/variables';
 
 .button {
   $transition-effect: linear;
@@ -11,13 +10,12 @@
   min-width: $width-min-clickable;
   padding: $padding-base;
   text-transform: uppercase;
-  transition: background-color $transition-speed $transition-effect,
-    border $transition-speed $transition-effect,
+  transition: background-color $transition-speed $transition-effect, border $transition-speed $transition-effect,
     color $transition-speed $transition-effect;
 
   &:hover {
     background-color: $color-primary;
     border: $border-width solid $color-secondary;
-    color: $white;
+    color: $color-tertiary;
   }
 }

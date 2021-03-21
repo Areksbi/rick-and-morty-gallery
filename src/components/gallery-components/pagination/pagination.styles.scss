@@ -1,6 +1,5 @@
-@import "../../../styles/breakpoints";
-@import "../../../styles/colors";
-@import "../../../styles/variables";
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .pagination {
   $transition-effect: linear;

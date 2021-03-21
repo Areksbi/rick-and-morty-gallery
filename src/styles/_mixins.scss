@@ -1,5 +1,4 @@
-@import "colors";
-@import "variables";
+@import 'variables';
 
 @mixin box-shadow($v-offset: 8px, $spread-radius: 0) {
   box-shadow: 0 $v-offset 8px $spread-radius $color-box-shadow;
@@ -8,6 +7,27 @@
 @mixin max-width() {
   margin: 0 auto;
   max-width: $width-max-page;
+}
+
+@mixin media($from: null, $to: null) {
+  $from: map-get($breakpoints, $from);
+  $to: map-get($breakpoints, $to);
+
+  @if $from and $to {
+    @media (min-width: $from) and (max-width: $to - 1px) {
+      @content;
+    }
+  } @else if $from {
+    @media (min-width: $from) {
+      @content;
+    }
+  } @else if $to {
+    @media (max-width: $to - 1px) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
 }
 
 @mixin shrink-label {
