@@ -40,6 +40,7 @@ export interface IApiRickAndMortyResult {
 }
 
 export interface IApiRickAndMorty {
-  info: IApiRickAndMortyInfo;
-  results: IApiRickAndMortyResult[];
+  error?: string;
+  info?: IApiRickAndMortyInfo;
+  results?: IApiRickAndMortyResult[];
 }

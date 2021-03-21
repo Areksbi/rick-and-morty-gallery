@@ -10,6 +10,11 @@
   max-width: $width-max-page;
 }
 
+@mixin shrink-label {
+  top: -#{$font-size-base};
+  font-size: $font-size-small;
+}
+
 @mixin visually-hidden() {
   &:not(:focus):not(:active) {
     clip: rect(1px, 1px, 1px, 1px);

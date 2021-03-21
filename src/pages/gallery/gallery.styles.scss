@@ -21,7 +21,11 @@
   }
 
   &__results {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     grid-area: results;
+    justify-content: center;
   }
 
   &__title {

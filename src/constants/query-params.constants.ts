@@ -1,6 +1,6 @@
 import { ApiRickAndMortyCharacterRequestEnum } from '../enums/api-rick-and-morty.enums';
 
-export const QueryParamsConstants = {
+export const QueryParamsConst = {
   PAGE: ApiRickAndMortyCharacterRequestEnum.PAGE,
   NAME: ApiRickAndMortyCharacterRequestEnum.NAME,
   SPECIES: ApiRickAndMortyCharacterRequestEnum.SPECIES,

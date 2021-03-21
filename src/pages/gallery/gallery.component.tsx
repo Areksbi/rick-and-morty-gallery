@@ -8,32 +8,19 @@ import useQueryParams from '../../effects/use-query-params';
 import { ApiRickAndMorty } from '../../constants/api.constants';
 import {
   IApiRickAndMorty,
-  IApiRickAndMortyCharacter,
   IApiRickAndMortyResult,
 } from '../../interfaces/api-rick-and-morty.interfaces';
 import { ITranslation } from '../../interfaces/core.interfaces';
-import { QueryParamsConstants } from '../../constants/query-params.constants';
+import { QueryParamsConst } from '../../constants/query-params.constants';
 import Filters from '../../components/gallery-components/filters/filters.component';
 
 const GalleryPage = ({ t }: ITranslation): JSX.Element => {
-  const [pageParam, setPageParam] = useQueryParams(
-    QueryParamsConstants.PAGE,
-    ''
-  );
-  const [name, setNameParam] = useQueryParams(QueryParamsConstants.NAME, '');
-  const [species, setSpeciesParam] = useQueryParams(
-    QueryParamsConstants.SPECIES,
-    ''
-  );
-  const [type, setTypeParam] = useQueryParams(QueryParamsConstants.TYPE, '');
-  const [status, setStatusParam] = useQueryParams(
-    QueryParamsConstants.STATUS,
-    ''
-  );
-  const [gender, setGenderParam] = useQueryParams(
-    QueryParamsConstants.GENDER,
-    ''
-  );
+  const [pageParam, setPageParam] = useQueryParams(QueryParamsConst.PAGE, '');
+  const [name, setName] = useQueryParams(QueryParamsConst.NAME, '');
+  const [species, setSpecies] = useQueryParams(QueryParamsConst.SPECIES, '');
+  const [type, setType] = useQueryParams(QueryParamsConst.TYPE, '');
+  const [status, setStatus] = useQueryParams(QueryParamsConst.STATUS, '');
+  const [gender, setGender] = useQueryParams(QueryParamsConst.GENDER, '');
 
   const [page, setPage] = useState(parseInt(pageParam || '1', 10));
   const res = useFetch<IApiRickAndMorty>(
@@ -52,30 +39,34 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
     setPageParam(selectedPage.toString());
     window.scrollTo(0, 0);
   };
-  const onFiltersChange = ({
-    gender,
-    name,
-    species,
-    status,
-    type,
-  }: IApiRickAndMortyCharacter): void => {
-    if (name) setNameParam(name);
-    if (species) setSpeciesParam(species);
-    if (type) setTypeParam(type);
-    if (status) setStatusParam(status);
-    if (gender) setGenderParam(gender);
+  const onFiltersChange = (
+    setState: (value: string) => void,
+    value: string
+  ): void => {
     goToPage(1);
+    setState(value);
   };
 
   return (
     <div className="gallery">
       <h2 className="gallery__title">{t('gallery.title.value')}</h2>
       <section className={'gallery__filters'}>
-        <Filters />
+        <Filters
+          name={name}
+          species={species}
+          type={type}
+          status={status}
+          gender={gender}
+          setName={(value: string) => onFiltersChange(setName, value)}
+          setSpecies={(value: string) => onFiltersChange(setSpecies, value)}
+          setType={(value: string) => onFiltersChange(setType, value)}
+          setStatus={(value: string) => onFiltersChange(setStatus, value)}
+          setGender={(value: string) => onFiltersChange(setGender, value)}
+        />
       </section>
-      {res.response ? (
+      {res?.response || !res.response?.error ? (
         <section className={'gallery__results'}>
-          {res.response.info.next || res.response.info.prev ? (
+          {res.response?.info?.next || res.response?.info?.prev ? (
             <Pagination
               goToPage={goToPage}
               perPage={20}
@@ -84,11 +75,15 @@ const GalleryPage = ({ t }: ITranslation): JSX.Element => {
             />
           ) : null}
           <div className="gallery__card-container">
-            {res.response.results.map((character: IApiRickAndMortyResult) => (
-              <Card key={character.id} {...character} />
-            ))}
+            {res.response?.results ? (
+              res.response?.results.map((character: IApiRickAndMortyResult) => (
+                <Card key={character.id} {...character} />
+              ))
+            ) : (
+              <p>There are no results that match your search</p>
+            )}
           </div>
-          {res.response.info.next || res.response.info.prev ? (
+          {res.response?.info?.next || res.response?.info?.prev ? (
             <Pagination
               goToPage={goToPage}
               perPage={20}
