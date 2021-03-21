@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import './card-character.styles.scss';
 import { IApiRickAndMortyResult } from '../../../interfaces/api-rick-and-morty.interfaces';
 import { ApiRickAndMortyStatusEnum } from '../../../enums/api-rick-and-morty.enums';
+import { TranslationsEnums } from '../../../enums/translations.enums';
 
 const Card = ({
   name,
@@ -15,7 +16,7 @@ const Card = ({
   status,
   type,
 }: IApiRickAndMortyResult): JSX.Element => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(TranslationsEnums.COMMON);
   return (
     <article className="card">
       <header>

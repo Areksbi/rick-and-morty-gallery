@@ -7,6 +7,8 @@ import {
 import Input from '../../@shared/input/input.component';
 import Select, { ISelectOption } from '../../@shared/select/select.component';
 import Button from '../../@shared/button/button.component';
+import { useTranslation } from 'react-i18next';
+import { TranslationsEnums } from '../../../enums/translations.enums';
 
 export interface IFilters {
   name: string;
@@ -33,6 +35,7 @@ const Filters = ({
   setStatus,
   setGender,
 }: IFilters) => {
+  const { t } = useTranslation(TranslationsEnums.COMMON);
   const statusOptions: ISelectOption[] = [
     {
       label: ApiRickAndMortyStatusEnum.ALIVE,
@@ -73,7 +76,7 @@ const Filters = ({
   return (
     <div className={'filters'}>
       <header>
-        <h2 className={'filters__title'}>Filters</h2>
+        <h2 className={'filters__title'}>{t('gallery.filters.title')}</h2>
       </header>
       <Input
         name="name"
@@ -83,7 +86,7 @@ const Filters = ({
         handleChange={(e: ChangeEvent<HTMLInputElement>) =>
           setName(e.target.value)
         }
-        label="Name"
+        label={t('gallery.filters.name')}
       />
       <Input
         name="species"
@@ -93,7 +96,7 @@ const Filters = ({
         handleChange={(e: ChangeEvent<HTMLInputElement>) =>
           setSpecies(e.target.value)
         }
-        label="Species"
+        label={t('gallery.filters.species')}
       />
       <Input
         name="type"
@@ -103,7 +106,7 @@ const Filters = ({
         handleChange={(e: ChangeEvent<HTMLInputElement>) =>
           setType(e.target.value)
         }
-        label="Type"
+        label={t('gallery.filters.type')}
       />
 
       <Select
@@ -113,7 +116,7 @@ const Filters = ({
         handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setStatus(e.target.value)
         }
-        label="Status"
+        label={t('gallery.filters.status')}
         options={statusOptions}
       />
 
@@ -124,7 +127,7 @@ const Filters = ({
         handleChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setGender(e.target.value)
         }
-        label="Gender"
+        label={t('gallery.filters.gender')}
         options={genderOptions}
       />
       <Button

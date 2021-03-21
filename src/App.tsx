@@ -7,9 +7,10 @@ import GalleryPage from './pages/gallery/gallery.component';
 import Footer from './components/@core/footer/footer.component';
 import Header from './components/@core/header/header.component';
 import { useTranslation } from 'react-i18next';
+import { TranslationsEnums } from './enums/translations.enums';
 
 const App = (): JSX.Element => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(TranslationsEnums.COMMON);
   return (
     <>
       <a className="skip-to-main" href="#gallery-results">

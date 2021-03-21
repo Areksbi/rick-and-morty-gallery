@@ -16,14 +16,19 @@
   "gallery": {
     "character": {
       "gender": "Gender",
-      "genderFemale": "Female",
-      "genderMale": "Male",
-      "genderUnknown": "Unknown",
       "imageOf": "Image of",
       "location": "Last Location",
       "origin": "Origin",
       "species": "Species",
       "status": "Status",
+      "type": "Type"
+    },
+    "filters": {
+      "gender": "Gender",
+      "name": "Name",
+      "species": "Species",
+      "status": "Status",
+      "title": "Filters",
       "type": "Type"
     },
     "loading": {
@@ -39,6 +44,11 @@
     },
     "title": {
       "value": "Rick and Morty"
+    }
+  },
+  "select": {
+    "option": {
+      "all": "-"
     }
   }
 }
