@@ -31,7 +31,6 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "eject": "react-scripts eject",
     "lint-staged": "lint-staged",
     "postinstall": "husky install",
     "start": "DISABLE_ESLINT=true react-scripts start"
